@@ -3,5 +3,8 @@
         "postinstall": "cd frontend && npm install",
         "build": "cd frontend && npm run build",
         "start": "cd frontend && npm start"
+    },
+    "devDependencies": {
+        "gh-pages": "^6.0.0"
     }
 }
