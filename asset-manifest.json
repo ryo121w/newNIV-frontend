@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/newNIV-frontend/static/css/main.98a51d9e.css",
-    "main.js": "/newNIV-frontend/static/js/main.929f1a46.js",
-    "static/js/787.cda612ba.chunk.js": "/newNIV-frontend/static/js/787.cda612ba.chunk.js",
-    "index.html": "/newNIV-frontend/index.html",
-    "main.98a51d9e.css.map": "/newNIV-frontend/static/css/main.98a51d9e.css.map",
-    "main.929f1a46.js.map": "/newNIV-frontend/static/js/main.929f1a46.js.map",
-    "787.cda612ba.chunk.js.map": "/newNIV-frontend/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "./static/css/main.98a51d9e.css",
+    "main.js": "./static/js/main.0a79428e.js",
+    "static/js/787.cda612ba.chunk.js": "./static/js/787.cda612ba.chunk.js",
+    "index.html": "./index.html",
+    "main.98a51d9e.css.map": "./static/css/main.98a51d9e.css.map",
+    "main.0a79428e.js.map": "./static/js/main.0a79428e.js.map",
+    "787.cda612ba.chunk.js.map": "./static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98a51d9e.css",
-    "static/js/main.929f1a46.js"
+    "static/js/main.0a79428e.js"
   ]
 }
