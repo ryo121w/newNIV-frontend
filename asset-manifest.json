@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/newniv-frontend/static/css/main.98a51d9e.css",
-    "main.js": "/newniv-frontend/static/js/main.ba829d64.js",
-    "static/js/787.cda612ba.chunk.js": "/newniv-frontend/static/js/787.cda612ba.chunk.js",
-    "index.html": "/newniv-frontend/index.html",
-    "main.98a51d9e.css.map": "/newniv-frontend/static/css/main.98a51d9e.css.map",
-    "main.ba829d64.js.map": "/newniv-frontend/static/js/main.ba829d64.js.map",
-    "787.cda612ba.chunk.js.map": "/newniv-frontend/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/newNIV-frontend/static/css/main.98a51d9e.css",
+    "main.js": "/newNIV-frontend/static/js/main.929f1a46.js",
+    "static/js/787.cda612ba.chunk.js": "/newNIV-frontend/static/js/787.cda612ba.chunk.js",
+    "index.html": "/newNIV-frontend/index.html",
+    "main.98a51d9e.css.map": "/newNIV-frontend/static/css/main.98a51d9e.css.map",
+    "main.929f1a46.js.map": "/newNIV-frontend/static/js/main.929f1a46.js.map",
+    "787.cda612ba.chunk.js.map": "/newNIV-frontend/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98a51d9e.css",
-    "static/js/main.ba829d64.js"
+    "static/js/main.929f1a46.js"
   ]
 }
