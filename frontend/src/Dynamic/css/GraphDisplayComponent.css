@@ -1,0 +1,26 @@
+.hidden{
+    opacity: 0;
+}
+
+
+.active {
+    fill: grey;
+}
+
+
+.x-axis path,
+.y-axis path {
+  stroke: rgba(0, 0, 0, 0.615);
+  stroke-width: 1.5;
+}
+
+#graph-display {
+    position: relative;
+}
+
+#graph-display button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;  /* Ensure the button appears above the SVG */
+}

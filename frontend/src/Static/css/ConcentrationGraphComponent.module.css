@@ -1,0 +1,165 @@
+.concentration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+
+.GenerateGraph{
+    margin-top: 20px;
+}
+
+
+
+
+.concentration-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.input-group {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+
+
+
+.Molar-Title{
+    color:black;
+    margin:0;
+    font-size: 12px;
+}
+
+.Molar-Label{
+    color:black;
+    font-weight: 600;
+
+}
+
+.Molar-Label p {
+    font-size: 5px;
+    transform: scale(0.7); 
+}
+
+.Molar-Component-Wrapper{
+    width: 95%;
+    height:500px;             
+}
+
+/* グラフと濃度のコンテナ */
+.graph-concentration-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 濃度のコンテナ */
+
+
+/* グラフのコンテナ */
+.graph-container {
+    display: flex;
+    justify-content: center; /* 横方向で中央に */
+    align-items: center;     /* 縦方向で中央に */
+}
+
+
+/* グラフのスタイル */
+.NIRGraph {
+    max-width: 100%;  /* 必要に応じて調整 */
+    height: auto;
+}
+
+/* インプットグループのスタイル */
+.input-group-set {
+    display: flex;
+    align-items: center;
+
+}
+
+.input-group-set input{
+    width:90px;
+    border: 1px solid ;
+    border-color: rgb(200, 200, 200);
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+}
+
+.Bento_NIRGraph,
+.Bento_NIRGraph_Calculator,
+.Bento_NIRGraph_Second_Calculator {
+background-color: #f4f4f4;
+border-radius: 15px;
+padding: 20px;
+margin: 10px;
+opacity: 0; 
+transition: opacity 0.5s ease-in-out; /* 0.5s animation */
+transform: scale(1.05); /* 初期状態で5%拡大 */
+transition: transform 0.3s ease-in-out; 
+}
+
+.Bento_NIRGraph:hover,
+.Bento_NIRGraph_Calculator:hover,
+.Bento_NIRGraph_Second_Calculator:hover {
+    transform: scale(1);
+transition: transform 0.3s ease-in-out; /* 0.3秒で縮小 */
+}
+
+
+.Bento_NIRGraph_Calculator{
+    width: 145px;
+    height: 40px;
+    }
+
+.Bento_NIRGraph_Second_Calculator{
+width: 145px;
+height: 40px;
+}
+
+.Calculator-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    }
+
+
+/* 要素を表示するためのクラス */
+.show-element {
+    opacity: 1;
+    transition-delay: 0.2s;  /* 例: 0.2秒遅延 */
+}
+
+.show-calculator {
+    opacity: 1;
+    transition-delay: 0.5s;  /* 例: 0.5秒遅延 */
+}
+
+.show-second_calculator {
+    opacity: 1;
+    transition-delay: 0.8s;  /* 例: 0.8秒遅延 */
+}
+
+
+    .Graph-right-side{
+        margin-left:10px;
+    }

@@ -1,0 +1,56 @@
+/* EntryPage.css */
+/* ... 既存のCSS ... */
+
+.popout {
+    font-family: Futura, sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    padding: 40px;
+}
+
+@keyframes ani {
+    0% {
+    transform: translate3d(0, 0, 0);
+    text-shadow: 0em 0em 0 lightblue;
+    color: black;
+    }
+    30% {
+    transform: translate3d(0, 0, 0);
+    text-shadow: 0em 0em 0 lightblue;
+    color: black;
+    }
+    70% {
+    transform: translate3d(0.08em, -0.08em, 0);
+    text-shadow: -0.08em 0.08em lightblue;
+    color: black;
+    }
+    100% {
+    transform: translate3d(0.08em, -0.08em, 0);
+    text-shadow: -0.08em 0.08em lightblue;
+    color: black;
+    }
+}
+
+.popout span {
+    position: relative;
+    display: inline-block;
+    animation: ani 1s infinite alternate cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    animation-delay: calc(-1s * var(--i) / 3 / 2);
+}
+
+
+@media only screen and (max-width: 1366px) {
+    .popout {
+      font-size: 35px; /* フォントサイズを小さく */
+      /* ...その他の調整 */
+    }
+  }
+  
+  /* モバイルデバイス用 */
+  @media only screen and (max-width: 600px) {
+    .popout {
+      font-size: 40px; /* フォントサイズをさらに小さく */
+      /* ...その他の調整 */
+    }
+  }
+  

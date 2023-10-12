@@ -1,0 +1,105 @@
+/* EntryPage.css */
+.container {
+  display: flex;
+  min-height: 100vh;  /* height: 100vh; を min-height: 100vh; に変更 */
+  overflow-y: auto;
+}
+
+.left-container {
+  flex: 1;
+  background-color: #5cb9ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* 水平方向は中央に */
+  justify-content: center;  /* 垂直方向は中央に */
+  min-width: 50%;
+  padding: 20px;
+}
+.right-container {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50%;
+  padding: 20px;  
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+}
+
+.emphasized-text {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.Entry-Logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; /* 水平方向は左に寄せる */
+}
+
+.Entry-Logo p{
+  color:white;
+}
+
+
+.Entry-Near-Infrared-Visualizer{
+  margin:0;
+  font-weight: 700;
+}
+
+.Entry-Note{
+  font-size: 10px;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+  min-width: 100px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+.version {
+  font-size: 5px;
+  font-weight: bold;
+  position: fixed;  /* 固定位置 */
+  bottom: 0;  /* 画面の底辺に固定 */
+  right: 5px;  /* 画面の右端に固定 */
+}
+
+/* モバイルデバイス用 */
+@media only screen and (max-width: 600px) {
+  .left-container,
+  .right-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+}
+
+/* 一般的なノートPC用 */
+@media only screen and (max-width: 1366px) {
+  .left-container,
+  .right-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+}

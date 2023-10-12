@@ -1,0 +1,63 @@
+.Second-button {
+    position: relative;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 1px solid #17795E;
+    background-color: #209978;
+    overflow: hidden;
+    margin:0;
+    margin-bottom:30px;
+  }
+  
+  .Second-button, .Second-button__icon, .Second-button__text {
+    transition: all 0.3s;
+  }
+  
+  .Second-button .Second-button__text {
+    margin-left: 10px; 
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .Second-button .Second-button__icon {
+    position: absolute;
+    left: 0px;
+    
+    height: 100%;
+    width: 30px;
+    background-color: #17795E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Second-button .Second-svg {
+    width: 20px;
+    fill: #fff;
+  }
+  
+  .Second-button:hover {
+    background: #17795E;
+  }
+  
+  .Second-button:hover .Second-button__text {
+    color: transparent;
+  }
+  
+  .Second-button:hover .Second-button__icon {
+    width: 100px;
+    transform: translateX(0);
+  }
+  
+  .Second-button:active .Second-button__icon {
+    background-color: #146c54;
+  }
+  
+  .Second-button:active {
+    border: 1px solid #146c54;
+  }
+  
