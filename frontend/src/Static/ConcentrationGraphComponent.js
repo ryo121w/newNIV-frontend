@@ -27,7 +27,7 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
         event.preventDefault();
 
         try {
-            const response = await fetch("/download_excel/");
+            const response = await fetch(`${BACKEND_URL}api/download_excel/`);
 
             if (!response.ok) {
                 // レスポンスのステータスコードが200以外の場合の処理
