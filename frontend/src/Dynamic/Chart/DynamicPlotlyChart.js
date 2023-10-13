@@ -43,8 +43,9 @@ const DynamicPlotlyChart = () => {
     };
 
     const handleReverseXAxis = () => {
+        console.log("handleReverseXAxis is called"); // 追加
         setXAxisReversed(prevState => !prevState);
-        setRevision(prevRevision => prevRevision + 1);  // これを追加
+        setRevision(prevRevision => prevRevision + 1);
     };
 
     const plotRef = useRef(null);
@@ -52,7 +53,7 @@ const DynamicPlotlyChart = () => {
     useEffect(() => {
         if (plotRef.current && Plotly) {
             try {
-                console.log('Attempting to relayout:', isXAxisReversed ? 'reversed' : 'normal');  // 追加
+                console.log('Attempting to relayout:', isXAxisReversed ? 'reversed' : 'normal');
                 Plotly.relayout(plotRef.current, {
                     'xaxis.autorange': isXAxisReversed ? 'reversed' : 'normal',
                 });
@@ -61,6 +62,11 @@ const DynamicPlotlyChart = () => {
             }
         }
     }, [isXAxisReversed, plotRef.current, Plotly]);
+
+
+    useEffect(() => {
+        console.log("isXAxisReversed is now: ", isXAxisReversed);  // 追加
+    }, [isXAxisReversed]);
 
 
 
@@ -76,7 +82,7 @@ const DynamicPlotlyChart = () => {
             showgrid: false,
             zeroline: false,
             showline: true,
-            autorange: 'reversed',
+            autorange: isXAxisReversed ? 'reversed' : 'normal',
             linecolor: 'rgba(153, 153, 153, 0.8)',
             linewidth: 1,
             tickformat: '.0f',
@@ -346,7 +352,7 @@ const DynamicPlotlyChart = () => {
                     <Plot
                         className={styles[Plot]}
                         data={data}
-                        layout={layout}
+                        layout={{ ...layout, xaxis: { ...layout.xaxis, autorange: isXAxisReversed ? 'reversed' : 'normal' } }}
                         onRelayout={(eventData, graphDiv) => handlePlotRelayout(eventData, graphDiv)}
                         onSelected={(eventData) => handlePlotlySelected(eventData)}
                         revision={revision}

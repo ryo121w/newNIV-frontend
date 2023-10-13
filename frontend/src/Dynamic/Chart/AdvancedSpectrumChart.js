@@ -4,7 +4,7 @@ import Plot from 'react-plotly.js';
 import dynamicButtonStyles from '../css/DynamicButton.module.css';
 import styles from '../css/AreaPeak.module.css'
 
-const BASE_API_URL = "http://localhost:8000/";
+const BASE_API_URL = process.env.REACT_APP_API_ENDPOINT;
 
 // 動的に色を生成する関数
 function generateColors(n) {

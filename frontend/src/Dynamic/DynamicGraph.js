@@ -5,15 +5,7 @@ import AdvancedSpectrumChart from './Chart/AdvancedSpectrumChart';
 import styles from './css/DynamicGraph.module.css';
 
 function DynamicGraph() {
-    const [data, setData] = useState([]);
-    const [annotations, setAnnotations] = useState([]);
-    const svgRef = useRef(null);
     const [scrolled, setScrolled] = useState(false);
-
-    // Moved the onFileChange logic to DataUpload component
-    const updateAnnotations = (newAnnotations) => {
-        setAnnotations(newAnnotations);
-    };
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -59,10 +51,6 @@ function DynamicGraph() {
             <div id="GraphComponent" className={styles['content']}>  {/* idを追加 */}
                 <DynamicPlotlyChart />
             </div>
-
-            {/* <div>
-                <DynamicGraphNormal />
-            </div> */}
 
             <div id="ConcentrationGraph" className={styles['content']}>  {/* idを追加 */}
                 <GoogleChartExample />
