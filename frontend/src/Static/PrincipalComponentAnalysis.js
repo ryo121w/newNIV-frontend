@@ -13,7 +13,7 @@ function PrincipalComponentAnalysis() {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post(`${BACKEND_URL}/api/pca_analysis/`, {
+            const response = await axios.post(`${BACKEND_URL}api/pca_analysis/`, {
                 // Add any payload if needed
             });
             setPcaResult(response.data); // Assume the API returns the desired result directly
