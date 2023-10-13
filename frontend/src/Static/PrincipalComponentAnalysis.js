@@ -39,7 +39,7 @@ function PrincipalComponentAnalysis() {
                         <img
                             className={styles.graphImage}
                             src={pcaResult.graph_url}
-                            alt="PCA Graph"
+                            alt="PCA"
                         />
                     }
 
