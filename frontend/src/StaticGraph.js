@@ -6,6 +6,7 @@ import DifferentialRadioButtons from './Static/Derivative/DifferentialRadioButto
 import FileUploader from './Static/FileUploader';
 import GraphComponent from './Static/GraphComponent';
 import DifferenceGraphComponent from './Static/DifferenceGraphComponent';
+import PrincipalComponentAnalysis from './Static/PrincipalComponentAnalysis';
 
 
 function StaticGraph() {
@@ -34,6 +35,7 @@ function StaticGraph() {
 
         <DifferenceGraphComponent />
 
+        <PrincipalComponentAnalysis />
       </header>
     </div>
   );
