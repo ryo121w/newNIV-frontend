@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DynamicPlotlyChart from './Chart/DynamicPlotlyChart';
 import GoogleChartExample from './GoogleChartExample/ GoogleChartExample';
 import AdvancedSpectrumChart from './Chart/AdvancedSpectrumChart';

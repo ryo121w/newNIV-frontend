@@ -135,19 +135,7 @@ const DynamicPlotlyChart = () => {
 
 
 
-    useEffect(() => {
-        if (data.length > 0) {
-            Plotly.react(
-                plotRef.current,
-                data,
-                { ...layout, dragmode: 'zoom' },
-                config
-            ).then(() => {
-                // Plotlyのグラフがレンダリングされた後にanimationStateを更新
-                setAnimationState('animate');
-            });
-        }
-    }, [data, showPeaks]);
+
 
 
 
