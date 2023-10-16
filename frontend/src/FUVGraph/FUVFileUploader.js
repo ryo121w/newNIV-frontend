@@ -4,10 +4,10 @@ import styles from './css/FileUploader.module.css';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-const FileUploader = ({ isLoading, setIsLoading }) => {
+
+const FileUploader = () => {
 
     const handleFileUpload = (e) => {
-        setIsLoading(true);  // ローディング開始
         const file = e.target.files[0];
         const reader = new FileReader();
 
@@ -17,7 +17,12 @@ const FileUploader = ({ isLoading, setIsLoading }) => {
             const worksheet = workbook.Sheets[workbook.SheetNames[0]];
             const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-            fetch(`${BACKEND_URL}api/upload_excel/`, {
+            // ファイルのデータを処理
+            const firstRow = jsonData[0];
+            const concentrations = Object.keys(firstRow).filter(key => key !== '波長');
+
+            // データをバックエンドに送信
+            fetch(`${BACKEND_URL}api/fuv_upload/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,11 +32,9 @@ const FileUploader = ({ isLoading, setIsLoading }) => {
                 .then(response => response.json())
                 .then(data => {
                     console.log('Success:', data);
-                    setIsLoading(false);  // ローディング終了
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    setIsLoading(false);  // エラーが発生した場合もローディングを終了
                 });
         };
 
@@ -55,3 +58,4 @@ const FileUploader = ({ isLoading, setIsLoading }) => {
 };
 
 export default FileUploader;
+

@@ -1,38 +1,235 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* App.css全体コード */
 .App-header {
-  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* 左寄せ */
+  justify-content: flex-start;
+  /* 上寄せ */
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+/* 各コンポーネントの設定 */
+.component-wrapper {
+  padding: 40px;
+  border-radius: 10px;
+  /* 角を丸くする */
+  margin: 20px 0;
+  /* 上下の間隔を取る */
+  width: 100%;
+  /* フル幅 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* 影を追加 */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+
+
+/* サイドバー */
+.App-Logo {
+  display: flex;
+  justify-content: center;
+  /* 画面の中心に配置 */
+  align-items: center;
+  /* 縦方向の中心に配置 */
+  height: 20px;
+  /* 画面の高さに合わせる */
+  background-color: rgba(239, 239, 239, 0.725);
+  width: 100%;
+}
+
+.App-Logo.scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 999;
+}
+
+/* サイドバーul */
+.App-Logo ul {
+  list-style: none;
+  /* リストマーカーを削除 */
+  padding: 0;
+  /* パディングを削除 */
+  margin: 0;
+  /* マージンを削除 */
+  display: flex;
+  /* フレックスボックスにする */
+  justify-content: space-between;
+  /* 等間隔でアイテムを並べる */
+  width: 90%;
+  /* ul の幅を最大にする */
+  top: 10px;
+}
+
+.App-Logo ul li p {
+  margin-top: 27px;
+  font-size: 4px;
+  /* 仮のサイズ */
+  transform: scale(0.6);
+  font-weight: lighter;
+}
+
+/* サイドバーの計算ボタン */
+.App-Calculation {
+  color: black;
+  font-size: 12px;
+}
+
+/* 計算ボタン */
+.App-Compute {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* 縦に並べる */
+  align-items: center;
+  /* 左寄せ */
+  width: 90%;
+  /* 親要素の80% */
+  height: 40px;
+  margin: 0 auto;
+  /* 中央寄せ */
+}
+
+
+
+
+
+/* サイドバーアニメーション */
+.sidebar {
+  position: fixed;
+  top: 30px;
+  right: 0;
+  width: 0;
+  overflow-x: hidden;
+  transition: 1.5s;
+  z-index: 9999;
+  border-radius: 10px;
+}
+
+/* 表示状態 */
+.sidebar.open {
+  width: 170px;
+  height: 250px;
+  background-color: rgba(239, 239, 239, 0.725);
+}
+
+/* 追加するCSS */
+.sidebar-component-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 水平方向に中央揃え */
+  justify-content: center;
+  /* 垂直方向に中央揃え */
+  height: 100%;
+  /* 高さを100%に設定 */
+  transform: scale(0.6);
+}
+
+
+
+
+
+
+/*==================================================
+　5-2-6 3本線が回転して×に
+===================================*/
+
+/*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
+.openbtn6 {
+  position: relative;
+  /*ボタン内側の基点となるためrelativeを指定*/
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  transform: scale(0.4);
+  bottom: 8px;
+}
+
+/*ボタン内側*/
+.openbtn6 span {
+  display: inline-block;
+  transition: all .4s;
+  /*アニメーションの設定*/
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgb(125, 124, 124);
+}
+
+
+.openbtn6 span:nth-of-type(1) {
+  top: 15px;
+  width: 45%;
+}
+
+.openbtn6 span:nth-of-type(2) {
+  top: 23px;
+  width: 35%;
+}
+
+.openbtn6 span:nth-of-type(3) {
+  top: 31px;
+  width: 20%;
+}
+
+/*activeクラスが付与されると線が回転して×になる*/
+
+.openbtn6.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-135deg);
+  width: 30%;
+}
+
+.openbtn6.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn6.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(135deg);
+  width: 30%;
+}
+
+
+.linear-progress {
+  height: 2px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  /* 画面の一番上に固定 */
+  background-color: #e0e0e0;
+  z-index: 1000;
+  /* 他の要素の上に表示 */
+}
+
+.linear-progress .progress {
+  background-color: rgb(0, 136, 255);
+  height: 100%;
+  width: 0;
+  animation: linearLoading 2s infinite;
+}
+
+@keyframes linearLoading {
+  0% {
+    width: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    width: 50%;
+  }
+
+  100% {
+    width: 100%;
   }
 }

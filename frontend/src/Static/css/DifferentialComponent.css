@@ -2,41 +2,45 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* 左側に配置 */
-  justify-content: center; /* 垂直方向に中央に配置 */
-  height: 400px;
+  align-items: flex-start;
+  /* 左側に配置 */
+  justify-content: center;
+  /* 垂直方向に中央に配置 */
+
 }
 
-.selector{
-  height:250px;
+.selector {
+  height: 250px;
 }
 
 
 .radio-input {
-  display: flex; /* 絶対位置指定を追加 */
+  display: flex;
+  /* 絶対位置指定を追加 */
   position: relative;
   height: 210px;
-  transform: scale(0.5);    
-  
+  margin-top: 0px;
+  transform: scale(0.5);
+
 }
 
 .glass {
 
   height: 100%;
-  width: 80px;
+  width: 90px;
   margin-right: 25px;
   padding: 8px;
   background-color: rgba(190, 189, 189, 0.5);
   border-radius: 35px;
   box-shadow: rgba(50, 50, 93, 0.2) 0px 25px 50px -10px,
-  rgba(0, 0, 0, 0.25) 0px 10px 30px -15px,
-  rgba(10, 37, 64, 0.26) 0px -2px 6px 0px inset;
+    rgba(0, 0, 0, 0.25) 0px 10px 30px -15px,
+    rgba(10, 37, 64, 0.26) 0px -2px 6px 0px inset;
 
 
 }
 
 .glass-inner {
-  width: 79%;
+  width: 66%;
   height: 90%;
   border-color: rgba(245, 245, 245, 0.45);
   border-width: 9px;
@@ -54,14 +58,16 @@
   margin: 10px 0 10px 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding-left: 15px;
 
 }
 
-.choice > div {
+.choice>div {
   position: relative;
   width: 41px;
   height: 41px;
-  margin-right: 15px;
+  margin-right: 5px;
   z-index: 0;
   -ms-filter: blur(6px);
   filter: blur(6px);
@@ -77,7 +83,7 @@
   border-color: rgba(98, 91, 91, 0.45);
   cursor: pointer;
   box-shadow: 0px 0px 20px -13px gray,
-  0px 0px 20px -14px gray inset;
+    0px 0px 20px -14px gray inset;
 }
 
 .ball {
@@ -86,20 +92,20 @@
   inset: 0px;
   transform: translateX(-95px);
   box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset,
-  rgba(0, 0, 0, 0.15) 0px -15px 15px 0px inset,
-  rgba(0, 0, 0, 0.1) 0px -40px 20px 0px inset,
-  rgba(0, 0, 0, 0.06) 0px 2px 1px, 
-  rgba(0, 0, 0, 0.09) 0px 4px 2px, 
-  rgba(0, 0, 0, 0.09) 0px 8px 4px, 
-  rgba(0, 0, 0, 0.09) 0px 16px 8px,
-  rgba(0, 0, 0, 0.09) 0px 32px 16px,
-  0px -1px 15px -8px rgba(0, 0, 0, 0.09);
+    rgba(0, 0, 0, 0.15) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -40px 20px 0px inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px,
+    0px -1px 15px -8px rgba(0, 0, 0, 0.09);
   border-radius: 100%;
-  transition: transform 800ms cubic-bezier(1,-0.4,0,1.4);
+  transition: transform 800ms cubic-bezier(1, -0.4, 0, 1.4);
   background-color: rgb(232, 232, 232, 1);
-  }
+}
 
-.choice-circle:checked + .ball {
+.choice-circle:checked+.ball {
   transform: translateX(0px);
 }
 
@@ -125,17 +131,16 @@
 
 .slide-down-enter-active,
 .slide-down-leave-active {
-  transition: 
+  transition:
     transform 1s ease-in-out,
     opacity 1s ease-in-out;
 }
 
 
 
-.Derivative-changer{
+.Derivative-changer {
   font-size: 12px;
   text-align: center;
-  margin-top:100px;
+  margin-top: 20px;
   margin-bottom: 0px;
 }
-

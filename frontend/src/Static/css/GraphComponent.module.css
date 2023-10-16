@@ -1,140 +1,41 @@
+/* GraphComponent.module.css */
+.Graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* これを追加 */
+  width: 100%;
+  height: 65vh;
+  /* 画面の高さ全体を使用 */
+}
 
-    /* 既存のスタイル */
-    .NIRGraph {
-    width: 350px;  /* 例: 幅を400pxに設定 */
-    height: 200px; 
-    }
+.Graph-left-side {
+  width: 30%;
+  /* 60%の幅に設定 */
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
 
+.Graph-right-side {
+  width: 65%;
+  /* 40%の幅に設定 */
+  padding: 10px;
+  box-sizing: border-box;
+}
 
+.NIRGraph {
+  max-width: 100%;
+  height: auto;
+}
 
-
-    .Bento_NIRGraph,
-    .Bento_NIRGraph_Calculator,
-    .Bento_NIRGraph_Second_Calculator {
-    background-color: #f4f4f4;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 10px;
-    opacity: 0; /* Initially set to 0 */
-    transition: opacity 0.5s ease-in-out; /* 0.5s animation */
-    transform: scale(1.05); /* 初期状態で5%拡大 */
-    transition: transform 0.3s ease-in-out; 
-    }
-
-
-    .Bento_NIRGraph:hover,
-    .Bento_NIRGraph_Calculator:hover,
-    .Bento_NIRGraph_Second_Calculator:hover {
-        transform: scale(1);
-    transition: transform 0.3s ease-in-out; /* 0.3秒で縮小 */
-    }
-
-    .Bento_NIRGraph_Calculator{
-    width: 145px;
-    height: 40px;
-    }
-
-    .Bento_NIRGraph_Second_Calculator{
-    width: 145px;
-    height: 40px;
-    }
-    
-
-    .Calculator-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    }
-
-    /* Add this class when you want the element to be visible */
-    .show-element {
-    opacity: 1;
-    }
-
-
-    .show-element {
-    opacity: 1;
-    }
-
-    .show-calculator {
-    opacity: 1;
-    transition-delay: 0.5s; /* delay for the first calculator */
-    }
-
-    .show-second_calculator {
-    opacity: 1;
-    transition-delay: 1s; /* delay for the second calculator */
-    }
-    .Generate {
-    margin-top: 20px;
-    }
-
-    body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fff;
-    color: #333;
-    }
-
-    button:hover, label[for="fileInput"]:hover {
-    background-color: #0056b3;
-    }
-
-    button:active, label[for="fileInput"]:active {
-    background-color: #0056b3;
-    }
-
-    .NIR-title {
-    color: black;
-    font-size: 12px;
-    margin: 0px;
-    }
-
-    .NIRGraph {
-      width: 350px;  /* 例: 幅を400pxに設定 */
-      height: 200px; 
-      }
-
-    .Graph-container {
-    display: flex;
-    justify-content: space-between;
-    width: 95%;  /* 必要に応じて調整 */
-    margin: 0 auto; /* 中央寄せのための追加 */
-    height: 400px;
-    }
-
-    .Graph-left-side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    margin-right: 30px;
-    margin-top:40px;
-    gap:20px;
-    }
-
-    .Graph-left-side.initial {
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.5s ease-in-out;
-        opacity: 1;
-      }
-      
-      .Graph-left-side.moved {
-        justify-content: flex-start;
-        align-items: flex-start;
-        transition: opacity 0.5s ease-in-out;
-        opacity: 0;
-      }
-      
-      .Graph-right-side.initial {
-        max-width: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.5s ease-in-out;
-      }
-      
-      .Graph-right-side.moved {
-        max-width: 100%;
-        max-height: 100%;
-        transition: all 0.5s ease-in-out;
-      }
+.title {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 0px;
+  font-weight: 800;
+}

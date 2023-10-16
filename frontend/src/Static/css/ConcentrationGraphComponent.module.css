@@ -1,19 +1,68 @@
-.concentration-container {
+/* GraphComponent.module.css */
+.Graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* これを追加 */
+    width: 100%;
+    height: 65vh;
+    /* 画面の高さ全体を使用 */
+
+}
+
+.Graph-left-side {
+    width: 30%;
+    /* 60%の幅に設定 */
+    padding: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
     align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
+}
+
+.Graph-right-side {
+    width: 65%;
+    /* 40%の幅に設定 */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.NIRGraph {
+    max-width: 100%;
+    height: auto;
+}
+
+.title {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 0px;
+    font-weight: 800;
+}
+
+
+.Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 8px;
+    z-index: 1000;
+
 }
 
-
-
-.GenerateGraph{
-    margin-top: 20px;
+.ModalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
-
 
 
 
@@ -39,64 +88,9 @@
 }
 
 
-
-
-
-.Molar-Title{
-    color:black;
-    margin:0;
-    font-size: 12px;
-}
-
-.Molar-Label{
-    color:black;
-    font-weight: 600;
-
-}
-
-.Molar-Label p {
-    font-size: 5px;
-    transform: scale(0.7); 
-}
-
-.Molar-Component-Wrapper{
-    width: 95%;
-    height:500px;             
-}
-
-/* グラフと濃度のコンテナ */
-.graph-concentration-container {
-    display: flex;
-    align-items: flex-start;
-}
-
-/* 濃度のコンテナ */
-
-
-/* グラフのコンテナ */
-.graph-container {
-    display: flex;
-    justify-content: center; /* 横方向で中央に */
-    align-items: center;     /* 縦方向で中央に */
-}
-
-
-/* グラフのスタイル */
-.NIRGraph {
-    max-width: 100%;  /* 必要に応じて調整 */
-    height: auto;
-}
-
-/* インプットグループのスタイル */
-.input-group-set {
-    display: flex;
-    align-items: center;
-
-}
-
-.input-group-set input{
-    width:90px;
-    border: 1px solid ;
+.input-group-set input {
+    width: 90px;
+    border: 1px solid;
     border-color: rgb(200, 200, 200);
     border-radius: 10px;
     padding: 5px;
@@ -105,61 +99,161 @@
     margin-left: 10px;
 }
 
-.Bento_NIRGraph,
-.Bento_NIRGraph_Calculator,
-.Bento_NIRGraph_Second_Calculator {
-background-color: #f4f4f4;
-border-radius: 15px;
-padding: 20px;
-margin: 10px;
-opacity: 0; 
-transition: opacity 0.5s ease-in-out; /* 0.5s animation */
-transform: scale(1.05); /* 初期状態で5%拡大 */
-transition: transform 0.3s ease-in-out; 
+
+.Molar-Title {
+    color: black;
+    margin: 0;
+    font-size: 12px;
 }
 
-.Bento_NIRGraph:hover,
-.Bento_NIRGraph_Calculator:hover,
-.Bento_NIRGraph_Second_Calculator:hover {
-    transform: scale(1);
-transition: transform 0.3s ease-in-out; /* 0.3秒で縮小 */
+.Molar-Label {
+    color: black;
+    font-weight: 600;
+
+}
+
+.Molar-Label p {
+    font-size: 5px;
+    transform: scale(0.9);
+}
+
+.Molar-Component-Wrapper {
+    width: 95%;
+    height: 500px;
 }
 
 
-.Bento_NIRGraph_Calculator{
-    width: 145px;
-    height: 40px;
-    }
-
-.Bento_NIRGraph_Second_Calculator{
-width: 145px;
-height: 40px;
+.CloseIcon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    transform: scale(0.7);
 }
 
-.Calculator-container {
+
+
+.S3 {
+    font-family: inherit;
+    font-size: 20px;
+    background: #212121;
+    color: white;
+    fill: rgb(155, 153, 153);
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    }
-
-
-/* 要素を表示するためのクラス */
-.show-element {
-    opacity: 1;
-    transition-delay: 0.2s;  /* 例: 0.2秒遅延 */
-}
-
-.show-calculator {
-    opacity: 1;
-    transition-delay: 0.5s;  /* 例: 0.5秒遅延 */
-}
-
-.show-second_calculator {
-    opacity: 1;
-    transition-delay: 0.8s;  /* 例: 0.8秒遅延 */
+    align-items: center;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
 }
 
 
-    .Graph-right-side{
-        margin-left:10px;
-    }
+.S3 span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.S3 svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.S3:hover {
+    background: #000;
+}
+
+
+.S3:hover .svg-wrapper {
+    transform: scale(1.25);
+    transition: .5s linear;
+}
+
+
+.S3:hover svg {
+    transform: translateX(2em) scale(1.1);
+    fill: #fff;
+}
+
+.S3:hover span {
+    opacity: 0;
+    transition: .5s linear;
+}
+
+.S3:active {
+    transform: scale(0.95);
+}
+
+
+
+.cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em 1.5em 0.8em 1.2em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(0deg, rgba(77, 54, 208, 1) 0%, rgba(132, 116, 254, 1) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #4d36d0be;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    transform: scale(0.65);
+}
+
+
+
+.cssbuttons-io-button svg {
+    margin-right: 8px;
+}
+
+.cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #4d36d0be;
+}
+
+.cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #4d36d0be;
+}
+
+
+
+.open_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #7e97b8;
+    background-color: #e0e8ef;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: rgba(255, 255, 255, 0.333);
+    border-radius: 40px 40px 40px 40px;
+    padding: 16px 24px 16px 28px;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: 0.2s;
+    box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+    transform: scale(0.65);
+}
+
+.open_button:hover {
+    color: #516d91;
+    background-color: #E5EDF5;
+    box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+}
+
+.open_button:active {
+    box-shadow: none;
+}

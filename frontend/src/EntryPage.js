@@ -5,9 +5,9 @@ import './ButtonStyles.css';
 import './Welcome.css';
 import StaticGraph from './StaticGraph';
 import DynamicGraph from './Dynamic/DynamicGraph';
+import FUVGraph from './FUVGraph/FUVGraph';
 
 function EntryPage() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // ログイン状態を管理
     const [choice, setChoice] = useState(null);
 
 
@@ -18,6 +18,8 @@ function EntryPage() {
         return <StaticGraph />;
     } else if (choice === "dynamic") {
         return <DynamicGraph />;
+    } else if (choice === "fuv") { // 追加
+        return <FUVGraph />;
     }
 
     return (
@@ -63,6 +65,8 @@ function EntryPage() {
                     <button className="btn" onClick={() => setChoice('dynamic')}>動的グラフ (D3.js)</button>
                     <p className="Entry-Note">※こちらは動的なグラフです。具体的にスペクトルを操作してデータを評価したい時に使用してください。
                     </p>
+                    <button className="btn" onClick={() => setChoice('fuv')}>FUV</button>
+                    <p className="Entry-Note">※こちらはFUVです。KK変換など。</p>
                 </div>
             </div>
             <p className="version">version 1.0.0</p>
