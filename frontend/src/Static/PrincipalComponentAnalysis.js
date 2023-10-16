@@ -39,11 +39,10 @@ function PrincipalComponentAnalysis() {
                 {error && <p className={styles.error}>{error}</p>}
                 {pcaResult && (
                     <div className={styles.resultContainer}>
-                        <p>PCA Result:</p>
                         {/* Display the graph image */}
                         {pcaResult && pcaResult.graph_url &&
                             <img
-                                className={styles.graphImage}
+                                className={styles['NIRGraph']}
                                 src={pcaResult.graph_url}
                                 alt="PCA"
                             />
