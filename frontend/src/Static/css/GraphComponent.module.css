@@ -45,7 +45,7 @@
 
 
 .error-message {
-  color: red;
+  color: rgb(243, 5, 5);
   font-weight: bold;
   font-size: 15px;
   margin: 10px 0;
