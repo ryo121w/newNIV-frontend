@@ -98,23 +98,23 @@ function StaticGraph() {
         </div>
 
         <div id="ConcentrationGraphComponent" className={styles['wrapper']}>
-          <ConcentrationGraphComponent />
+          <ConcentrationGraphComponent isLoading={isLoading} setIsLoading={setIsLoading} />
         </div>
 
         <div className={styles['wrapper']} id="Differential" >
-          <DifferentialComponent className="SecondDerivativeGraphComponent" selectedDifferential={selectedDifferential} />
+          <DifferentialComponent className="SecondDerivativeGraphComponent" selectedDifferential={selectedDifferential} setIsLoading={setIsLoading} />
         </div>
 
         <div id="DifferenceGraphComponent" className={styles['wrapper']}>
-          <DifferenceGraphComponent />
+          <DifferenceGraphComponent isLoading={isLoading} setIsLoading={setIsLoading} />
         </div>
 
         <div id="PrincipalComponentAnalysis" className={styles['wrapper']}>
-          <PrincipalComponentAnalysis />
+          <PrincipalComponentAnalysis isLoading={isLoading} setIsLoading={setIsLoading} />
         </div>
 
         <div id="MultipleCorrespondenceAnalysis" className={styles['wrapper']}>
-          <MultipleCorrespondenceAnalysis />
+          <MultipleCorrespondenceAnalysis isLoading={isLoading} setIsLoading={setIsLoading} />
         </div>
       </header>
     </div>

@@ -5,7 +5,7 @@ import './css/Button.css';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentrations }) {
+function ConcentrationGraphComponent({ setIsLoading, graphConcentrations: initialGraphConcentrations }) {
     const [graphUrl, setGraphUrl] = useState(null);
     const [concentrations, setConcentrations] = useState({});
     const [showCalculator, setShowCalculator] = useState(false);
@@ -13,6 +13,10 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
     const [showGraph, setShowGraph] = useState(false);
     const [graphConcentrations, setGraphConcentrations] = useState(initialGraphConcentrations);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [Loading, setLoading] = useState(false); // 追加
+    const [errorMessage, setErrorMessage] = useState(null); // 追加
+
+
 
 
     const handleConcentrationChange = (e, molarity) => {
@@ -26,11 +30,12 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
     const handleButtonClick = async (event) => {
         event.preventDefault();
 
+        setIsLoading(true); // ローディング開始
+
         try {
             const response = await fetch(`${BACKEND_URL}api/download_excel/`);
 
             if (!response.ok) {
-                // レスポンスのステータスコードが200以外の場合の処理
                 throw new Error(`Failed to fetch with status: ${response.status}`);
             }
 
@@ -42,23 +47,27 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
             a.click();
             window.URL.revokeObjectURL(url);
         } catch (error) {
-            // エラーハンドリングを行う
             console.error("Failed to download the file:", error);
+        } finally {
+            setIsLoading(false); // ローディング終了
         }
     };
 
     const fetchConcentrationsFromS3 = async () => {
+        setIsLoading(true);
         try {
             const response = await axios.get(`${BACKEND_URL}api/get_files_from_s3/`);
             if (response.data && response.data.molarities) {
                 setGraphConcentrations(response.data.molarities);  // Stateを更新
             }
+            setIsLoading(false);
         } catch (error) {
             console.error("An error occurred:", error);
         }
     };
 
     const onSubmit = async () => {
+        setIsLoading(true);
         const formData = new FormData();
         Object.keys(concentrations).forEach((key) => {
             formData.append('concentrations[]', concentrations[key]);
@@ -71,7 +80,6 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
                 }
             });
 
-            // `graph_url` を参照するように変更
             if (graphResponse.data && graphResponse.data.graph_url) {
                 setGraphUrl(graphResponse.data.graph_url);
             }
@@ -79,10 +87,12 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
             setShowCalculator(true);
             setShowSecondCalculator(true);
         } catch (error) {
+            setErrorMessage("⚠︎Failed to generate the graph."); // エラーメッセージをセット
             console.error("An error occurred:", error);
+        } finally {
+            setIsLoading(false);
         }
     };
-
 
     const concentrationInputs = (graphConcentrations && Array.isArray(graphConcentrations))
         ? graphConcentrations.map((molarity, index) => (
@@ -130,6 +140,27 @@ function ConcentrationGraphComponent({ graphConcentrations: initialGraphConcentr
                     <div className={`${styles['Bento_NIRGraph']} ${showGraph ? styles['show-element'] : ''}`}>
                         {graphUrl && <img className={styles['NIRGraph']} src={graphUrl} alt="Corrected NIR Spectrum" />}
                     </div>
+                    {errorMessage && <div className={styles['error-message']}>{errorMessage}</div>}
+                    {Loading && <div id="wifi-loader">
+                        <svg class="circle-outer" viewBox="0 0 86 86">
+                            <circle class="back" cx="43" cy="43" r="40"></circle>
+                            <circle class="front" cx="43" cy="43" r="40"></circle>
+                            <circle class="new" cx="43" cy="43" r="40"></circle>
+                        </svg>
+                        <svg class="circle-middle" viewBox="0 0 60 60">
+                            <circle class="back" cx="30" cy="30" r="27"></circle>
+                            <circle class="front" cx="30" cy="30" r="27"></circle>
+                        </svg>
+                        <svg class="circle-inner" viewBox="0 0 34 34">
+                            <circle class="back" cx="17" cy="17" r="14"></circle>
+                            <circle class="front" cx="17" cy="17" r="14"></circle>
+                        </svg>
+                        <div class="text" data-text="Generating"></div>
+                    </div>} {/* ローディングインジケータの表示 */}
+
+
+
+
                     <div className={styles['Calculator-container']}>
                         <div className={`${styles['Bento_NIRGraph_Calculator']} ${showCalculator ? styles['show-calculator'] : ''}`}>
                             {/* Calculator content */}

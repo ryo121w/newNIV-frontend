@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './css/GraphComponent.module.css';
 import './css/Button.css';
+import './css/Loader.css';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -10,6 +11,8 @@ function GraphComponent() {
     const [showGraph, setShowGraph] = useState(false);
     const [showCalculator, setShowCalculator] = useState(false);
     const [showSecondCalculator, setShowSecondCalculator] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // 追加：ローディング状態
+    const [errorMessage, setErrorMessage] = useState(null); // 追加：エラーメッセージの状態
 
     useEffect(() => {
         if (showGraph) {
@@ -23,8 +26,10 @@ function GraphComponent() {
         }
     }, [showGraph]);
 
+
     const fetchGraph = async () => {
         console.log("fetchGraph called");
+        setIsLoading(true); // 通信開始時にローディング状態を true に設定
 
         try {
             const response = await axios.get(`${BACKEND_URL}api/latest_graph/`);
@@ -34,11 +39,16 @@ function GraphComponent() {
             }
         } catch (error) {
             console.error("Error generating the graph:", error);
+            setErrorMessage("Failed to generate the graph."); // エラーメッセージを設定
+        } finally {
+            setIsLoading(false); // 通信完了後にローディング状態を false に設定
         }
     };
 
+
     return (
         <div className={styles['Graph-container']}>
+
             <div className={styles['Graph-left-side']}>
                 <h4 className={styles['title']}>NIRスペクトル</h4>
                 <button className="unique_button" onClick={fetchGraph}>
@@ -52,8 +62,24 @@ function GraphComponent() {
             <div className={styles['Graph-right-side']}>
                 <div className={`${styles['Bento_NIRGraph']} ${showGraph ? styles['show-element'] : ''}`}>
                     {graphUrl && <img className={styles['NIRGraph']} src={graphUrl} alt="NIR Spectrum" />}
-
                 </div>
+                {errorMessage && <div className={styles['error-message']}>{errorMessage}</div>} {/* エラーメッセージの表示 */}
+                {isLoading && <div id="wifi-loader">
+                    <svg class="circle-outer" viewBox="0 0 86 86">
+                        <circle class="back" cx="43" cy="43" r="40"></circle>
+                        <circle class="front" cx="43" cy="43" r="40"></circle>
+                        <circle class="new" cx="43" cy="43" r="40"></circle>
+                    </svg>
+                    <svg class="circle-middle" viewBox="0 0 60 60">
+                        <circle class="back" cx="30" cy="30" r="27"></circle>
+                        <circle class="front" cx="30" cy="30" r="27"></circle>
+                    </svg>
+                    <svg class="circle-inner" viewBox="0 0 34 34">
+                        <circle class="back" cx="17" cy="17" r="14"></circle>
+                        <circle class="front" cx="17" cy="17" r="14"></circle>
+                    </svg>
+                    <div class="text" data-text="Generating"></div>
+                </div>} {/* ローディングインジケータの表示 */}
 
                 <div className={styles['Calculator-container']}>
                     <div className={`${styles['Bento_NIRGraph_Calculator']} ${showCalculator ? styles['show-calculator'] : ''}`}>
@@ -64,6 +90,7 @@ function GraphComponent() {
                     </div>
                 </div>
             </div>
+
         </div >
     );
 }

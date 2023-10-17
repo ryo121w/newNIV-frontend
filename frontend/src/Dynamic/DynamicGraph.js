@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import DynamicPlotlyChart from './Chart/DynamicPlotlyChart';
-import GoogleChartExample from './GoogleChartExample/ GoogleChartExample';
 import AdvancedSpectrumChart from './Chart/AdvancedSpectrumChart';
 import styles from './css/DynamicGraph.module.css';
 
@@ -52,9 +51,6 @@ function DynamicGraph() {
                 <DynamicPlotlyChart />
             </div>
 
-            <div id="ConcentrationGraph" className={styles['content']}>  {/* idを追加 */}
-                <GoogleChartExample />
-            </div>
 
             <div id="Concentration" className={styles['content']}>  {/* idを追加 */}
                 <AdvancedSpectrumChart />

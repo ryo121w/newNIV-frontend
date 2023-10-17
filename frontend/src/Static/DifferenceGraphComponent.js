@@ -5,21 +5,20 @@ import style from './css/Bento.module.css'
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-function DifferenceGraphComponent() {
+function DifferenceGraphComponent({ setIsLoading }) {
     const [graphUrl, setGraphUrl] = useState(null);
     const [savedFilePath, setSavedFilePath] = useState(null);
     const [fileSaved, setFileSaved] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [showCalculator, setShowCalculator] = useState(false); // New state
-    const [showSecondCalculator, setShowSecondCalculator] = useState(false); // New state
-    const [showGraph, setShowGraph] = useState(false); // 追加
+    const [showCalculator, setShowCalculator] = useState(false);
+    const [showSecondCalculator, setShowSecondCalculator] = useState(false);
+    const [showGraph, setShowGraph] = useState(false);
 
     useEffect(() => {
         const fetchSavedFilePath = async () => {
             try {
                 const response = await axios.get(`${BACKEND_URL}api/get_saved_file_path/`);
-                console.log("Debug: Response from get_saved_file_path", response);
                 if (response.data && response.data.file_path) {
                     setSavedFilePath(response.data.file_path);
                 }
@@ -34,27 +33,22 @@ function DifferenceGraphComponent() {
         }
     }, [fileSaved]);
 
-    const handleFileSaved = () => {
-        setFileSaved(true);
-    };
-
     const onSubmit = async (e) => {
-        e.preventDefault();  // 追加
+        e.preventDefault();
         setLoading(true);
         setError(null);
         try {
-            const postData = { file_path: savedFilePath };  // savedFilePath を POST データとして送信
+            const postData = { file_path: savedFilePath };
             const response = await axios.post(`${BACKEND_URL}api/difference_graph/`, postData);
-            console.log("Debug: Response from difference_graph", response);
             if (response.data && response.data.graph_url) {
                 setGraphUrl(response.data.graph_url);
+                setShowGraph(true);
+                setShowCalculator(true);
+                setShowSecondCalculator(true);
             }
-            setShowGraph(true);
-            setShowCalculator(true);
-            setShowSecondCalculator(true);
         } catch (error) {
-            console.error("Error generating the graph:", error.response ? error.response.data.error : error.message);
-            setError("Error generating the graph");
+            setError("Error generating the graph.");
+            console.error("Error generating the graph:", error);
         } finally {
             setLoading(false);
         }
@@ -62,33 +56,24 @@ function DifferenceGraphComponent() {
 
     const onDownload = async (event) => {
         event.preventDefault();
-
+        setIsLoading(true);
         try {
-            // Fetch the file from the backend
             const response = await fetch(`${BACKEND_URL}api/difference_download/`);
-
             if (!response.ok) {
                 throw new Error(`Failed to fetch with status: ${response.status}`);
             }
-
-            // Create a blob from the response and generate a URL for it
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
-
-            // Create an anchor element to start the download
             const a = document.createElement("a");
             a.href = url;
-            a.download = "difference_data.xlsx";  // Name of the file to be downloaded
+            a.download = "difference_data.xlsx";
             a.click();
-
-            // Clean up the URL after using it
             window.URL.revokeObjectURL(url);
+            setIsLoading(false);
         } catch (error) {
             console.error("Failed to download the file:", error);
         }
     };
-
-
     return (
         <div className={styles['Graph-container']}>
             <div className={styles['Graph-left-side']}>
@@ -110,6 +95,24 @@ function DifferenceGraphComponent() {
                 <div className={`${styles['Bento_NIRGraph']} ${showGraph ? styles['show-element'] : ''}`}>
                     {graphUrl && <img className={styles['NIRGraph']} src={graphUrl} alt="Corrected NIR Spectrum" />}
                 </div>
+
+                {error && <div className={styles['error-message']}>{error}</div>}
+                {loading && <div id="wifi-loader">
+                    <svg class="circle-outer" viewBox="0 0 86 86">
+                        <circle class="back" cx="43" cy="43" r="40"></circle>
+                        <circle class="front" cx="43" cy="43" r="40"></circle>
+                        <circle class="new" cx="43" cy="43" r="40"></circle>
+                    </svg>
+                    <svg class="circle-middle" viewBox="0 0 60 60">
+                        <circle class="back" cx="30" cy="30" r="27"></circle>
+                        <circle class="front" cx="30" cy="30" r="27"></circle>
+                    </svg>
+                    <svg class="circle-inner" viewBox="0 0 34 34">
+                        <circle class="back" cx="17" cy="17" r="14"></circle>
+                        <circle class="front" cx="17" cy="17" r="14"></circle>
+                    </svg>
+                    <div class="text" data-text="Generating"></div>
+                </div>} {/* ローディングインジケータの表示 */}
                 <div className={styles['Calculator-container']}>
                     <div className={`${styles['Bento_NIRGraph_Calculator']} ${showCalculator ? styles['show-calculator'] : ''}`}>
                         {/* Calculator content */}

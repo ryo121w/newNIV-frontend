@@ -5,7 +5,7 @@
     align-items: center;
     /* これを追加 */
     width: 100%;
-    height: 350px;
+    height: 400px;
     /* 画面の高さ全体を使用 */
 }
 
@@ -26,6 +26,7 @@
     /* 40%の幅に設定 */
     padding: 10px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .NIRGraph {
@@ -68,4 +69,14 @@
 
 .cssbuttons-io-button:active {
     box-shadow: 0 0.3em 1em -0.5em #4d36d0be;
+}
+
+
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 10px 0;
+    text-align: center;
 }

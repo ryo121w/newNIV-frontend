@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import FUVFileUploader from './FUVFileUploader';
+import FUVFileKK from './FUVFileKK';
+
 
 function FUVGraph() {
     const [fileUrl, setFileUrl] = useState(null);
@@ -18,6 +20,9 @@ function FUVGraph() {
                     {/* ここでfileUrlを使用して、例えばグラフの描画などの処理を行うことができます。 */}
                 </div>
             )}
+            <FUVFileKK />
+
+
         </div>
     );
 }
