@@ -67,7 +67,7 @@ function ConcentrationGraphComponent({ setIsLoading, graphConcentrations: initia
     };
 
     const onSubmit = async () => {
-        setIsLoading(true);
+        setLoading(true);
         const formData = new FormData();
         Object.keys(concentrations).forEach((key) => {
             formData.append('concentrations[]', concentrations[key]);
@@ -90,7 +90,7 @@ function ConcentrationGraphComponent({ setIsLoading, graphConcentrations: initia
             setErrorMessage("⚠︎Failed to generate the graph."); // エラーメッセージをセット
             console.error("An error occurred:", error);
         } finally {
-            setIsLoading(false);
+            setLoading(false);
         }
     };
 
