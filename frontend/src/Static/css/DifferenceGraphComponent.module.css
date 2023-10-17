@@ -10,7 +10,7 @@
 }
 
 .Graph-left-side {
-    width: 30%;
+    width: 50%;
     /* 60%の幅に設定 */
     padding: 10px;
     box-sizing: border-box;
@@ -22,7 +22,7 @@
 }
 
 .Graph-right-side {
-    width: 65%;
+    width: 50%;
     /* 40%の幅に設定 */
     padding: 10px;
     box-sizing: border-box;
