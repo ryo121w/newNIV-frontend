@@ -1,8 +1,6 @@
 // EntryPage.js
 import React, { useState } from 'react';
-import './EntryPage.css'; // CSSをインポート
-import './ButtonStyles.css';
-import './Welcome.css';
+import styles from './EntryPage.module.css'
 import StaticGraph from './StaticGraph';
 import DynamicGraph from './Dynamic/DynamicGraph';
 import FUVGraph from './FUVGraph/FUVGraph';
@@ -23,53 +21,150 @@ function EntryPage() {
     }
 
     return (
-        <div className="container">
-            <div className="left-container">
-                <div className="Entry-Logo">
-                    <img className="logo" src="/Free_Sample_By_Wix (1) (1).png" alt="NIV Logo" />
-                    <p className="Entry-Near-Infrared-Visualizer">Near Infrared Visualizer</p>
+        <div>
+            <div className={`${styles['container']} ${styles['backgroundImage']}`}>
+                <div className={styles['Entry-Logo']}>
+                    <img className={styles['logo']} src="/NIV__3_-removebg-preview.png" alt="NIV Logo" />
+                    <div className={styles['menu']}>
+                        <ul>
+                            <li className={styles['menu-list']}><p>StaticGraph</p></li>
+                            <li className={styles['menu-list']}><p>DynamicGraph</p></li>
+                            <li className={styles['menu-list']}><p>FUV</p></li>
+                            <li className={styles['menu-list']}><p>Other</p></li>
+
+                        </ul>
+                    </div>
                 </div>
-                <div className="popout">
-                    <span style={{ '--i': 1 }}>W</span>
-                    <span style={{ '--i': 2 }}>e</span>
-                    <span style={{ '--i': 3 }}>l</span>
-                    <span style={{ '--i': 4 }}>c</span>
-                    <span style={{ '--i': 5 }}>o</span>
-                    <span style={{ '--i': 6 }}>m</span>
-                    <span style={{ '--i': 7 }}>e</span>
-                    <span style={{ '--i': 8 }}>&nbsp;</span> {/* 空白 */}
-                    <span style={{ '--i': 9 }}>t</span>
-                    <span style={{ '--i': 10 }}>o</span>
-                    <span style={{ '--i': 11 }}>&nbsp;</span> {/* 空白 */}
-                    <span style={{ '--i': 12 }}>N</span>
-                    <span style={{ '--i': 13 }}>I</span>
-                    <span style={{ '--i': 14 }}>V</span>
+
+
+
+                <div className={styles['button-container']}>
+                    <button className={styles['btn']} onClick={() => setChoice('static')}>StaticGraph(Django)</button>
+
+                    <button className={styles['btn']} onClick={() => setChoice('dynamic')}>DynamicGraph(D3.js)</button>
+
+                    <button className={styles['btn']} onClick={() => setChoice('fuv')}>FUV</button>
+
+                    <button className={styles['btn']} onClick={() => setChoice('fuv')}>Others</button>
+
+                </div>
+
+
+
+
+            </div>
+            <div className={styles['Static']}>
+                <div className={styles['Title']}>
+                    <h1>Static Graph</h1>
                 </div>
                 <ul>
-                    <li>
-                        <h5>
-                            <span className="emphasized-text">静的グラフ(Django)</span><br></br> このオプションを選ぶと、事前に計算されたデータを用いてグラフを生成します。ユーザーは新たなデータを入力することなく、静的なグラフを閲覧できます。
-                        </h5>
-                    </li>
-                    <li>
-                        <h5>
-                            <span className="emphasized-text">動的グラフ (D3.js)</span><br></br>  このオプションを選ぶと、D3.jsを用いてリアルタイムでグラフが生成されます。ユーザーはデータを動的に変更でき、その結果を即座にグラフで確認することができます。
-                        </h5>
-                    </li>
+                    <div className={styles['video-container']}>
+                        <li className={styles['static-list']}>Select File</li>
+                        <div className={styles['video']}>
+                            <video width="320" height="150" controls>
+                                <source src="/SelectFile.mp4" type="video/mp4" />
+                                お使いのブラウザは動画タグをサポートしていません。
+                            </video>
+                        </div>
+                        <p className={styles['video-ex']}>ファイル選択を行う際は動画のように選択してください。AWS(S3)へのアップロードに少し時間がかかるので、上部に表示されるローダーが終わるまで、次の操作をしないでください</p>
+                    </div>
+
+
+                    <div className={styles['video-container']}>
+                        <li className={styles['static-list']}>Generate Graph</li>
+                        <div className={styles['video']}>
+                            <video width="320" height="150" controls>
+                                <source src="/GenerateGraph.mp4" type="video/mp4" />
+                                お使いのブラウザは動画タグをサポートしていません。
+                            </video>
+                        </div>
+                        <p className={styles['video-ex']}>グラフを生成するときはGenerateボタンを押してください。ローダーが開始するのでそれまで少しの間待ってください。その後他の解析を行ってください</p>
+                    </div>
+
+
+
+
+                    <div className={styles['video-container']}>
+                        <li className={styles['static-list']}>Concentration</li>
+                        <div className={styles['video']}>
+                            <video width="320" height="150" controls>
+                                <source src="/Concentration.mp4" type="video/mp4" />
+                                お使いのブラウザは動画タグをサポートしていません。
+                            </video>
+                        </div>
+                        <p className={styles['video-ex']}>モル吸光係数のグラフを出力する際は、水の濃度を入力する必要があるので濃度に対応する計算した水の濃度を入力したのちにGenerateボタンを押してください</p>
+                    </div>
+
+
+
+
+                    <div className={styles['video-container']}>
+                        <li className={styles['static-list']}>Download</li>
+                        <div className={styles['video']}>
+                            <video width="320" height="150" controls>
+                                <source src="/Download.mp4" type="video/mp4" />
+                                お使いのブラウザは動画タグをサポートしていません。
+                            </video>
+                        </div>
+                        <p className={styles['video-ex']}>Downloadボタンがある場合は、エクセルデータをダウンロードすることができます。ダウンロードしたデータをDynamicGraphやその他の解析に役立ててください</p>
+                    </div>
+
+
+
+
+
+                    <div className={styles['video-container']}>
+                        <li className={styles['static-list']}>Derivative</li>
+                        <div className={styles['video']}>
+                            <video width="320" height="150" controls>
+                                <source src="/Derivative.mp4" type="video/mp4" />
+                                お使いのブラウザは動画タグをサポートしていません。
+                            </video>
+                        </div>
+                        <p className={styles['video-ex']}>二次微分から四次微分まで微分することができます。変更したい際はヘッダーにあるハンバーガーボタンを押すと微分を変更することができます</p>
+                    </div>
+
+
+
+
+
+
                 </ul>
             </div>
-            <div className="right-container">
-                <div className="button-container">
-                    <button className="btn" onClick={() => setChoice('static')}>静的グラフ(Django)</button>
-                    <p className="Entry-Note">※こちらは静的なグラフが出力されます。データによっては、適切な範囲でない可能性があります</p>
-                    <button className="btn" onClick={() => setChoice('dynamic')}>動的グラフ (D3.js)</button>
-                    <p className="Entry-Note">※こちらは動的なグラフです。具体的にスペクトルを操作してデータを評価したい時に使用してください。
-                    </p>
-                    <button className="btn" onClick={() => setChoice('fuv')}>FUV</button>
-                    <p className="Entry-Note">※こちらはFUVです。KK変換など。</p>
+
+            <div>
+                <div className={styles['Title']}>
+                    <h1>Dynamic Graph</h1>
                 </div>
+                <ul>
+                    <li className={styles['static-list']}>Plotly.js Graph</li>
+
+                </ul>
             </div>
-            <p className="version">version 1.0.0</p>
+
+
+            <div>
+                <div className={styles['Title']}>
+                    <h1>FUV</h1>
+                </div>
+                <ul>
+                    <li className={styles['static-list']}>KKTransform</li>
+                    <li className={styles['static-list']}>FUVGraph</li>
+                    <li className={styles['static-list']}>Second Derivative</li>
+                </ul>
+            </div>
+
+
+            <div>
+                <div className={styles['Title']}>
+                    <h1>Other</h1>
+                </div>
+                <ul>
+                    <li className={styles['static-list']}>Find Peak</li>
+                    <li className={styles['static-list']}>FUVGraph</li>
+                    <li className={styles['static-list']}>Second Derivative</li>
+                </ul>
+            </div>
         </div>
     );
 

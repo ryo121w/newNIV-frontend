@@ -50,11 +50,6 @@ function DynamicGraph() {
             <div id="GraphComponent" className={styles['content']}>  {/* idを追加 */}
                 <DynamicPlotlyChart />
             </div>
-
-
-            <div id="Concentration" className={styles['content']}>  {/* idを追加 */}
-                <AdvancedSpectrumChart />
-            </div>
         </div>
     );
 }

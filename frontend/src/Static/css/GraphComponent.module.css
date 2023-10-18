@@ -6,7 +6,7 @@
   /* これを追加 */
   width: 100%;
   height: 300px;
-  /* 画面の高さ全体を使用 */
+  margin-top: 30px;
 }
 
 .Graph-left-side {

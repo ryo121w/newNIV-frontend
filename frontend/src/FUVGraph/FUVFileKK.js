@@ -13,7 +13,6 @@ function KKTransformComponent() {
             const postData = {
                 n_inf: nInf,
                 incident_angle: incidentAngle,
-                np: np
             };
             const response = await axios.post('/api/kk_transformed_spectrum/', postData);
             console.log(response.data);
@@ -46,15 +45,7 @@ function KKTransformComponent() {
                     onChange={e => setIncidentAngle(e.target.value)}
                 />
             </label>
-            <br />
-            <label>
-                内部反射部材の屈折率 (np):
-                <input
-                    type="number"
-                    value={np}
-                    onChange={e => setNp(e.target.value)}
-                />
-            </label>
+
             <br />
             <button onClick={handleKKTransform} disabled={loading}>
                 KK変換を開始

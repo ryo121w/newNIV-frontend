@@ -1,0 +1,81 @@
+body {
+  background-color: rgba(220, 220, 221, 0.735);
+  height: 2000px;
+  width: 95%;
+
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+}
+
+.Entry-Logo {
+  display: flex;
+}
+
+.btn {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(200, 198, 198, 0.227);
+}
+
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: fixed;
+  right: 0;
+}
+
+.button-container button {
+  margin-bottom: 10px;
+}
+
+.backgroundImage {
+  background-image: url('../public/Welcom\ To\ NIV..png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50px;
+  height: 400px;
+  /* 画面の高さに合わせる */
+  width: 100vw;
+  /* 画面の幅に合わせる */
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu ul li {
+  margin-right: 10px;
+}
+
+.menu ul li p {
+  margin: 0px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.static-list {
+  font-weight: 700;
+}
+
+.video-ex {
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.Static ul li {
+  list-style: none;
+}
+
+.video-container {
+  margin-bottom: 30px;
+  height: 250px;
+}
