@@ -61,7 +61,7 @@ function EntryPage() {
                     <div className={styles['video-container']}>
                         <li className={styles['static-list']}>Select File</li>
                         <div className={styles['video']}>
-                            <video width="320" height="150" controls>
+                            <video width="420" height="200" controls>
                                 <source src={`${process.env.PUBLIC_URL}/images/SelectFile.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
@@ -73,7 +73,7 @@ function EntryPage() {
                     <div className={styles['video-container']}>
                         <li className={styles['static-list']}>Generate Graph</li>
                         <div className={styles['video']}>
-                            <video width="320" height="150" controls>
+                            <video width="420" height="200" controls>
                                 <source src={`${process.env.PUBLIC_URL}/images/GenerateGraph.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
@@ -87,7 +87,7 @@ function EntryPage() {
                     <div className={styles['video-container']}>
                         <li className={styles['static-list']}>Concentration</li>
                         <div className={styles['video']}>
-                            <video width="320" height="150" controls>
+                            <video width="420" height="200" controls>
                                 <source src={`${process.env.PUBLIC_URL}/images/Concentration.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
@@ -101,7 +101,7 @@ function EntryPage() {
                     <div className={styles['video-container']}>
                         <li className={styles['static-list']}>Download</li>
                         <div className={styles['video']}>
-                            <video width="320" height="150" controls>
+                            <video width="420" height="200" controls>
                                 <source src={`${process.env.PUBLIC_URL}/images/Download.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
@@ -116,7 +116,7 @@ function EntryPage() {
                     <div className={styles['video-container']}>
                         <li className={styles['static-list']}>Derivative</li>
                         <div className={styles['video']}>
-                            <video width="320" height="150" controls>
+                            <video width="420" height="200" controls>
                                 <source src={`${process.env.PUBLIC_URL}/images/Derivative.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
