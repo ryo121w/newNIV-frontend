@@ -17,6 +17,7 @@ function EntryPage() {
         '/images/NIV3.gif',
         '/images/NIV4.gif',
         '/images/NIV5.gif',
+        '/images/NIV6.gif',
     ];
 
 
