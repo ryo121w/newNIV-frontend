@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "./static/css/main.49eaaa31.css",
-    "main.js": "./static/js/main.c078dab0.js",
+    "main.js": "./static/js/main.dcefb0ea.js",
     "static/js/787.cda612ba.chunk.js": "./static/js/787.cda612ba.chunk.js",
     "static/media/Welcom To NIV..png": "./static/media/Welcom To NIV..a842bb8549769157dac8.png",
     "index.html": "./index.html",
     "main.49eaaa31.css.map": "./static/css/main.49eaaa31.css.map",
-    "main.c078dab0.js.map": "./static/js/main.c078dab0.js.map",
+    "main.dcefb0ea.js.map": "./static/js/main.dcefb0ea.js.map",
     "787.cda612ba.chunk.js.map": "./static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.49eaaa31.css",
-    "static/js/main.c078dab0.js"
+    "static/js/main.dcefb0ea.js"
   ]
 }
