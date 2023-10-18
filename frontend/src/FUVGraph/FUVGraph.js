@@ -12,7 +12,6 @@ function FUVGraph() {
 
     return (
         <div>
-            <h1>FUV Graph Viewer</h1>
             <FUVFileUploader onFileUploaded={handleFileUploaded} />
             {fileUrl && (
                 <div>
