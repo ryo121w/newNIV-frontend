@@ -24,7 +24,7 @@ function EntryPage() {
         <div>
             <div className={`${styles['container']} ${styles['backgroundImage']}`}>
                 <div className={styles['Entry-Logo']}>
-                    <img className={styles['logo']} src={`${process.env.PUBLIC_URL}/NIVLogo.png`} alt="NIV Logo" />
+                    <img className={styles['logo']} src={`${process.env.PUBLIC_URL}/images/NIVLogo.png`} alt="NIV Logo" />
                     <div className={styles['menu']}>
                         <ul>
                             <li className={styles['menu-list']}><p>StaticGraph</p></li>
@@ -62,7 +62,7 @@ function EntryPage() {
                         <li className={styles['static-list']}>Select File</li>
                         <div className={styles['video']}>
                             <video width="320" height="150" controls>
-                                <source src={`${process.env.PUBLIC_URL}/SelectFile.mp4`} type="video/mp4" />
+                                <source src={`${process.env.PUBLIC_URL}/images/SelectFile.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
                         </div>
@@ -74,7 +74,7 @@ function EntryPage() {
                         <li className={styles['static-list']}>Generate Graph</li>
                         <div className={styles['video']}>
                             <video width="320" height="150" controls>
-                                <source src={`${process.env.PUBLIC_URL}/GenerateGraph.mp4`} type="video/mp4" />
+                                <source src={`${process.env.PUBLIC_URL}/images/GenerateGraph.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
                         </div>
@@ -88,7 +88,7 @@ function EntryPage() {
                         <li className={styles['static-list']}>Concentration</li>
                         <div className={styles['video']}>
                             <video width="320" height="150" controls>
-                                <source src={`${process.env.PUBLIC_URL}/Concentration.mp4`} type="video/mp4" />
+                                <source src={`${process.env.PUBLIC_URL}/images/Concentration.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
                         </div>
@@ -102,7 +102,7 @@ function EntryPage() {
                         <li className={styles['static-list']}>Download</li>
                         <div className={styles['video']}>
                             <video width="320" height="150" controls>
-                                <source src={`${process.env.PUBLIC_URL}/Download.mp4`} type="video/mp4" />
+                                <source src={`${process.env.PUBLIC_URL}/images/Download.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
                         </div>
@@ -117,7 +117,7 @@ function EntryPage() {
                         <li className={styles['static-list']}>Derivative</li>
                         <div className={styles['video']}>
                             <video width="320" height="150" controls>
-                                <source src={`${process.env.PUBLIC_URL}/Derivative.mp4`} type="video/mp4" />
+                                <source src={`${process.env.PUBLIC_URL}/images/Derivative.mp4`} type="video/mp4" />
                                 お使いのブラウザは動画タグをサポートしていません。
                             </video>
                         </div>
