@@ -110,6 +110,7 @@ function EntryPage() {
 
     return (
         <div>
+            {/* header */}
             <div className={`${styles['container']} ${styles['backgroundImage']}`}>
                 <div className={styles['Entry-Logo']}>
                     {renderRandomFile()}
@@ -125,7 +126,7 @@ function EntryPage() {
                 </div>
 
 
-
+                {/* SideButton */}
                 <div className={styles['button-container']}>
                     <button className={styles['btn']} onClick={() => setChoice('static')}>StaticGraph(Django)</button>
 
@@ -136,40 +137,84 @@ function EntryPage() {
                     <button className={styles['btn']} onClick={() => setChoice('fuv')}>Others</button>
 
                 </div>
-
-
-
-
             </div>
+
+
+
+
+            {/* Readme */}
+            <div className={styles['readme']}>
+                <h1 className={styles['readme-title']}>README</h1>
+                <img className={styles['readme-logo']} src={`${process.env.PUBLIC_URL}/images/NIVLogo.png`} />
+                <h1>Near Infrared Visualizer</h1>
+                <h3>近赤外分光法と遠紫外分光法の解析を目的としたアプリケーションの開発をしました。実験後の解析の際にこれまでだとかなりの時間がかかっていたので、そこを短縮したいと考えて作成しました。具体的には以下の通りです。</h3>
+
+
+                <div className={styles['readme-nir']}>
+                    <h5>NIR</h5>
+                    <ul>
+                        <li>モル吸光係数</li>
+                        <li>二次微分ー四次微分</li>
+                        <li>差スペクトル</li>
+                        <li>主成分分析</li>
+                    </ul>
+                </div>
+                <div className={styles['readme-fuv']}>
+                    <h5>FUV</h5>
+                    <ul>
+                        <li>クラマース・クローニッヒ変換</li>
+                        <li>二次微分</li>
+                    </ul>
+                </div>
+
+                <div className={styles['readme-asset']}>
+                    <h5>Asset</h5>
+                    <ul>
+                        <li>Frontend:JavaScript(React)</li>
+                        <li>Backend:Python(Djago)</li>
+                        <li>Infrastructure:Amazon Web Services, Heroku</li>
+                        <li>Environment setup:Docker</li>
+                        <li>etc:ESLint, Git, GitHub</li>
+                    </ul>
+                </div>
+
+                <div className={styles['readme-github']}>
+                    <h5>GitHub</h5>
+                    <p>Frontend</p>
+                    <p>Backend</p>
+                </div>
+            </div>
+
+            {/* Instruction */}
             <div className={styles['wrapper']}>
+                {/* Static */}
                 <div className={styles['Static']}>
                     <div className={`${styles['Title']} ${styles['fadeInUp']}`}>
                         <h1>Static Graph</h1>
                     </div>
+
                     <ul>
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <li
-                                className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('selectFile')}
-
-                            >
+                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`} onMouseEnter={() => showVideo('selectFile')}>
                                 Select File
                             </li>
                             <div className={`${styles['video']} ${isVisible['selectFile'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'selectFile')}
                                 onMouseLeave={() => hideVideo('selectFile')}>
+
                                 <video ref={el => videoRef.current['selectFile'] = el}>
                                     <source src={`${process.env.PUBLIC_URL}/images/SelectFile.mp4`} type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
+
                                 {!isPlaying['selectFile'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'selectFile')}>
                                         <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
                                     </button>
                                 )}
+
                                 <p className={styles['video-ex']}>ファイル選択を行う際は動画のように選択してください。AWS(S3)へのアップロードに少し時間がかかるので、上部に表示されるローダーが終わるまで、次の操作をしないでください</p>
                             </div>
-
                         </div>
 
 
@@ -183,7 +228,6 @@ function EntryPage() {
                             <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
                                 onMouseEnter={() => showVideo('generateGraph')}>Generate Graph</li>
 
-
                             <div className={`${styles['video']} ${isVisible['generateGraph'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'generateGraph')}
                                 onMouseLeave={() => hideVideo('generateGraph')}>
@@ -196,8 +240,9 @@ function EntryPage() {
                                         <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
                                     </button>
                                 )}
+                                <p className={styles['video-ex']}>グラフを生成するときはGenerateボタンを押してください。ローダーが開始するのでそれまで少しの間待ってください。その後他の解析を行ってください</p>
+
                             </div>
-                            <p className={styles['video-ex']}>グラフを生成するときはGenerateボタンを押してください。ローダーが開始するのでそれまで少しの間待ってください。その後他の解析を行ってください</p>
                         </div>
 
 
@@ -220,8 +265,9 @@ function EntryPage() {
                                         <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
                                     </button>
                                 )}
+                                <p className={styles['video-ex']}>モル吸光係数のグラフを出力する際は、水の濃度を入力する必要があるので濃度に対応する計算した水の濃度を入力したのちにGenerateボタンを押してください</p>
+
                             </div>
-                            <p className={styles['video-ex']}>モル吸光係数のグラフを出力する際は、水の濃度を入力する必要があるので濃度に対応する計算した水の濃度を入力したのちにGenerateボタンを押してください</p>
                         </div>
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
@@ -241,8 +287,9 @@ function EntryPage() {
                                         <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
                                     </button>
                                 )}
+                                <p className={styles['video-ex']}>Downloadボタンがある場合は、エクセルデータをダウンロードすることができます。ダウンロードしたデータをDynamicGraphやその他の解析に役立ててください</p>
+
                             </div>
-                            <p className={styles['video-ex']}>Downloadボタンがある場合は、エクセルデータをダウンロードすることができます。ダウンロードしたデータをDynamicGraphやその他の解析に役立ててください</p>
                         </div>
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
@@ -260,12 +307,15 @@ function EntryPage() {
                                         <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
                                     </button>
                                 )}
+                                <p className={styles['video-ex']}>二次微分から四次微分まで微分することができます。変更したい際はヘッダーにあるハンバーガーボタンを押すと微分を変更することができます</p>
+
                             </div>
-                            <p className={styles['video-ex']}>二次微分から四次微分まで微分することができます。変更したい際はヘッダーにあるハンバーガーボタンを押すと微分を変更することができます</p>
                         </div>
                     </ul>
                 </div>
 
+
+                {/* DynamicGraph */}
                 <div>
                     <div className={styles['Title']}>
                         <h1>Dynamic Graph</h1>
@@ -277,6 +327,8 @@ function EntryPage() {
                 </div>
 
 
+
+                {/* FUV */}
                 <div>
                     <div className={styles['Title']}>
                         <h1>FUV</h1>
@@ -289,6 +341,8 @@ function EntryPage() {
                 </div>
 
 
+
+                {/* Other */}
                 <div>
                     <div className={styles['Title']}>
                         <h1>Other</h1>

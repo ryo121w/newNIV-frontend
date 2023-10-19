@@ -199,6 +199,8 @@ body {
   transition: opacity 0.5s, transform 0.5s;
 }
 
+
+
 .fadeInUp.visible {
   /* ビューポート内に入った時のスタイル */
   opacity: 1;
@@ -208,6 +210,13 @@ body {
 .Title {
   animation-delay: 0.2s;
 }
+
+.Title h1 {
+  margin-top: 0px;
+}
+
+
+
 
 
 
@@ -234,6 +243,10 @@ body {
 
 .Static ul {
   padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -248,26 +261,26 @@ body {
 /* ===================================================== */
 /* ビデオ */
 .video video {
-  width: 80vw;
+  max-width: 100%;
+  /* 最大幅を100%に設定して、親要素を超えないようにします */
   height: auto;
-  border: none;
-  border-radius: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  position: absolute;
-
-
+  /* アスペクト比を維持 */
+  border-radius: 10px;
+  /* 必要に応じてボーダーラジウスを追加 */
 }
 
 .video {
   background-color: #4F19FD;
-  align-items: center;
+
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 90vw;
-  height: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   border-radius: 10px;
+  z-index: 1;
+  padding: 20px;
 }
 
 .video-container {
@@ -278,7 +291,13 @@ body {
   /* 水平方向の中央寄せ */
   align-items: center;
   /* 垂直方向の中央寄せ */
-  height: 100%;
+  width: 80vw;
+  /* video-containerの幅を指定。必要に応じて調整してください */
+
+  /* 背景色をここに追加 */
+  border-radius: 10px;
+  position: relative;
+
 }
 
 /* ===================================================== */
@@ -318,6 +337,7 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
+  z-index: 2;
 }
 
 .play-button img {
