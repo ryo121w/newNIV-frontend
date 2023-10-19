@@ -1,10 +1,17 @@
 body {
   background-color: rgba(220, 220, 221, 0.735);
-  height: 2000px;
-  width: 95%;
+  height: 100%;
+  width: 100%;
 
 }
 
+/* ===================================================== */
+
+
+
+
+/* ===================================================== */
+/* ロゴ */
 .logo {
   width: auto;
   height: 50px;
@@ -14,6 +21,12 @@ body {
   display: flex;
 }
 
+/* ===================================================== */
+
+
+
+/* ===================================================== */
+/* ヘッダーボタン */
 .btn {
   font-size: 10px;
   font-weight: 700;
@@ -21,30 +34,6 @@ body {
   border-radius: 5px;
   border: none;
   background-color: rgba(200, 198, 198, 0.227);
-}
-
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  position: fixed;
-  right: 0;
-}
-
-.button-container button {
-  margin-bottom: 10px;
-}
-
-.backgroundImage {
-  background-image: url('../public/Welcom\ To\ NIV..png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 50px;
-  height: 650px;
-  /* 画面の高さに合わせる */
-  width: 100vw;
-  /* 画面の幅に合わせる */
 }
 
 .menu ul {
@@ -62,20 +51,280 @@ body {
   font-weight: 600;
 }
 
+/* ===================================================== */
+
+
+
+/* ===================================================== */
+/* ヘッダーメニューアニメーション */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-list:hover {
+  transform: scale(1.05) translateX(-10px);
+  transition: transform 0.3s;
+}
+
+
+.menu-list {
+  animation-name: fadeInUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.menu-list:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.menu-list:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.menu-list:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.menu-list:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* ===================================================== */
+
+
+/* ===================================================== */
+/* ヘッダーボタンアニメーション */
+@keyframes buttonFadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.btn {
+  animation-name: buttonFadeInDown;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.btn:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.btn:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.btn:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.btn:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.btn:hover {
+  transform: scale(1.05) translateX(-15px) !important;
+  transition: transform 2.8s !important;
+}
+
+/* ===================================================== */
+
+
+/* ===================================================== */
+/* サイドボタン */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  position: fixed;
+  right: 0;
+  z-index: 1000;
+}
+
+.button-container button {
+  margin-bottom: 10px;
+}
+
+/* ===================================================== */
+
+
+
+/* ===================================================== */
+/* バックグラウンドイメージ */
+.backgroundImage {
+  background-image: url('../public/Welcom\ To\ NIV..png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50px;
+  height: 650px;
+  /* 画面の高さに合わせる */
+  width: 100vw;
+  /* 画面の幅に合わせる */
+}
+
+/* ===================================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* fadeInUpクラスのスタイル定義 */
+.fadeInUp {
+  /* アニメーション初期状態などのスタイル */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fadeInUp.visible {
+  /* ビューポート内に入った時のスタイル */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Title {
+  animation-delay: 0.2s;
+}
+
+
+
 .static-list {
   font-weight: 700;
+  animation-delay: 0.4s;
 }
 
 .video-ex {
+  color: #ffffff;
   font-size: 8px;
   font-weight: 600;
+  animation-delay: 0.8s;
 }
+
+.wrapper {
+  background-image: url('../public/images/StaticBackground.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  /* これにより背景画像が固定されます */
+  background-size: cover;
+}
+
+.Static ul {
+  padding-left: 0px;
+}
+
 
 .Static ul li {
   list-style: none;
 }
 
+
+
+
+
+/* ===================================================== */
+/* ビデオ */
+.video video {
+  width: 80vw;
+  height: auto;
+  border: none;
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: absolute;
+
+
+}
+
+.video {
+  background-color: #4F19FD;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 90vw;
+  height: auto;
+  border-radius: 10px;
+}
+
 .video-container {
   margin-bottom: 30px;
-  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 水平方向の中央寄せ */
+  align-items: center;
+  /* 垂直方向の中央寄せ */
+  height: 100%;
 }
+
+/* ===================================================== */
+
+/* ===================================================== */
+/* ビデオアニメーション */
+.video-hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  /* ビデオの高さを0に */
+  overflow: hidden;
+  /* コンテンツがはみ出さないように */
+  transition: opacity 0.5s ease-out, height 0.5s ease-out;
+  /* heightの変化にもアニメーションを追加 */
+}
+
+.video-visible {
+  opacity: 1;
+  visibility: visible;
+  height: 260px;
+  /* 例: 300px, ビデオの本来の高さに設定 */
+  transition: opacity 0.5s ease-in, height 0.5s ease-in;
+  /* heightの変化にもアニメーションを追加 */
+}
+
+/* ===================================================== */
+
+
+/* ===================================================== */
+/* ビデオ再生ボタン */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.play-button img {
+  width: 30px;
+  /* または適切なサイズ */
+  height: 30px;
+  /* または適切なサイズ */
+}
+
+/* ===================================================== */
