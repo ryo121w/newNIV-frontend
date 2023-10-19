@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.e25803b4.css",
-    "main.js": "./static/js/main.ad019249.js",
+    "main.css": "./static/css/main.ab3f1536.css",
+    "main.js": "./static/js/main.0bcfcfc4.js",
     "static/js/787.cda612ba.chunk.js": "./static/js/787.cda612ba.chunk.js",
+    "static/media/StaticBackground.gif": "./static/media/StaticBackground.80a10b58015c8bf8a8d3.gif",
     "static/media/Welcom To NIV..png": "./static/media/Welcom To NIV..a842bb8549769157dac8.png",
     "index.html": "./index.html",
-    "main.e25803b4.css.map": "./static/css/main.e25803b4.css.map",
-    "main.ad019249.js.map": "./static/js/main.ad019249.js.map",
+    "main.ab3f1536.css.map": "./static/css/main.ab3f1536.css.map",
+    "main.0bcfcfc4.js.map": "./static/js/main.0bcfcfc4.js.map",
     "787.cda612ba.chunk.js.map": "./static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e25803b4.css",
-    "static/js/main.ad019249.js"
+    "static/css/main.ab3f1536.css",
+    "static/js/main.0bcfcfc4.js"
   ]
 }
