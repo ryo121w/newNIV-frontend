@@ -165,6 +165,160 @@ body {
 
 
 /* ===================================================== */
+.readme {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.readme-title {
+  font-weight: 900;
+
+  padding: 5px;
+  border-bottom: 1px solid#000000;
+}
+
+.readme-title:hover {
+  color: rgb(34, 0, 255);
+  /* 文字色 */
+  border-color: rgb(34, 0, 255);
+  /* ボーダーの色 */
+}
+
+
+/* アニメーションの初期設定 */
+.readme-title span {
+  transition: color 0.5s;
+  color: black;
+
+}
+
+/* ホバー時のアニメーション効果 */
+.readme-title:hover span:nth-child(1) {
+  transition-delay: 0.1s;
+  color: rgb(34, 0, 255);
+  /* 文字色を変更 */
+  border-color: rgb(34, 0, 255);
+  /* ボーダーの色を変更 */
+}
+
+.readme-title:hover span:nth-child(2) {
+  transition-delay: 0.2s;
+  color: rgb(34, 0, 255);
+}
+
+.readme-title:hover span:nth-child(3) {
+  transition-delay: 0.3s;
+  color: rgb(34, 0, 255);
+}
+
+.readme-title:hover span:nth-child(4) {
+  transition-delay: 0.4s;
+  color: rgb(34, 0, 255);
+}
+
+.readme-title:hover span:nth-child(5) {
+  transition-delay: 0.5s;
+  color: rgb(34, 0, 255);
+}
+
+.readme-title:hover span:nth-child(6) {
+  transition-delay: 0.6s;
+  color: rgb(34, 0, 255);
+}
+
+/* 以下、必要な数だけ繰り返します。 */
+.readme-abs {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+
+
+.readme-logo {
+  width: 200px;
+}
+
+.readme-niv {
+  margin-top: 0px;
+}
+
+.readme-info h2 {
+  margin-bottom: 0px;
+}
+
+.readme-info h3 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-top: 0px;
+}
+
+
+.readme-ex {
+  display: flex;
+  justify-content: center;
+}
+
+.readme-nir {
+  border-radius: 50px;
+  padding: 40px;
+
+  margin-right: 10px;
+  text-align: center;
+  background-image: url('../public/images/NIVBack.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease-in-out;
+  /* 他のスタイル設定もこちらに追加 */
+}
+
+.readme-nir:hover {
+  transform: translateY(-10px);
+  /* ホバー時に要素を10ピクセル上に移動 */
+}
+
+
+.readme-nir ul {
+  padding: 0px;
+}
+
+.readme-nir ul li {
+  list-style: none;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.readme-fuv {
+  border-radius: 50px;
+  padding: 40px;
+  background-image: url('../public/images/FUVBack.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.readme-fuv:hover {
+  transform: translateY(-10px);
+  /* ホバー時に要素を10ピクセル上に移動 */
+}
+
+.readme-fuv ul {
+  padding: 0px;
+}
+
+.readme-fuv ul li {
+  list-style: none;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+/* ===================================================== */
 /* バックグラウンドイメージ */
 .backgroundImage {
   background-image: url('../public/Welcom\ To\ NIV..png');

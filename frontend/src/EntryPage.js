@@ -10,6 +10,20 @@ function EntryPage() {
     const [randomFile, setRandomFile] = useState('');
     const [isPlaying, setIsPlaying] = useState({}); // 動画の再生状態を管理する state
     const videoRef = useRef({}); // videoRef をオブジェクトとして初期化
+    const readmeTitle = "README";
+    const splitReadmeTitle = readmeTitle.split('');
+
+    useEffect(() => {
+        const menuItems = document.querySelectorAll('.menu-list p');
+        menuItems.forEach(item => {
+            const text = item.textContent;
+            const splitText = text.split('');
+            item.textContent = '';
+            for (let i = 0; i < splitText.length; i++) {
+                item.innerHTML += "<span>" + splitText[i] + "</span>";
+            }
+        });
+    }, []);
 
 
 
@@ -144,31 +158,44 @@ function EntryPage() {
 
             {/* Readme */}
             <div className={styles['readme']}>
-                <h1 className={styles['readme-title']}>README</h1>
-                <img className={styles['readme-logo']} src={`${process.env.PUBLIC_URL}/images/NIVLogo.png`} />
-                <h1>Near Infrared Visualizer</h1>
-                <h3>近赤外分光法と遠紫外分光法の解析を目的としたアプリケーションの開発をしました。実験後の解析の際にこれまでだとかなりの時間がかかっていたので、そこを短縮したいと考えて作成しました。具体的には以下の通りです。</h3>
-
-
-                <div className={styles['readme-nir']}>
-                    <h5>NIR</h5>
-                    <ul>
-                        <li>モル吸光係数</li>
-                        <li>二次微分ー四次微分</li>
-                        <li>差スペクトル</li>
-                        <li>主成分分析</li>
-                    </ul>
+                <h1 className={styles['readme-title']}>
+                    {splitReadmeTitle.map((char, index) => (
+                        <span key={index}>{char}</span>
+                    ))}
+                </h1>
+                <div className={styles['readme-abs']}>
+                    <img className={styles['readme-logo']} src={`${process.env.PUBLIC_URL}/images/NIVLogo.png`} />
+                    <h1 className={styles['readme-niv']}>Near Infrared Visualizer</h1>
                 </div>
-                <div className={styles['readme-fuv']}>
-                    <h5>FUV</h5>
-                    <ul>
-                        <li>クラマース・クローニッヒ変換</li>
-                        <li>二次微分</li>
-                    </ul>
+
+                <div className={styles['readme-in']}>
+                    <div className={styles['readme-info']}>
+                        <h2>BackGround</h2>
+                        <h3>近赤外分光法と遠紫外分光法の解析を目的としたアプリケーションの開発をしました。実験後の解析の際にこれまでだとかなりの時間がかかっていたので、そこを短縮したいと考えて作成しました。具体的には以下の通りです。</h3>
+                    </div>
+
+                    <div className={styles['readme-ex']}>
+                        <div className={styles['readme-nir']}>
+                            <h2>NIR</h2>
+                            <ul>
+                                <li>モル吸光係数(Concentration)</li>
+                                <li>二次微分ー四次微分(Derivative)</li>
+                                <li>差スペクトル(Difference)</li>
+                                <li>主成分分析(PCA)</li>
+                            </ul>
+                        </div>
+                        <div className={styles['readme-fuv']}>
+                            <h2>FUV</h2>
+                            <ul>
+                                <li>クラマース・クローニッヒ変換(KK変換)</li>
+                                <li>二次微分(Derivative)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div className={styles['readme-asset']}>
-                    <h5>Asset</h5>
+                    <h2>Asset</h2>
                     <ul>
                         <li>Frontend:JavaScript(React)</li>
                         <li>Backend:Python(Djago)</li>
@@ -179,9 +206,9 @@ function EntryPage() {
                 </div>
 
                 <div className={styles['readme-github']}>
-                    <h5>GitHub</h5>
-                    <p>Frontend</p>
-                    <p>Backend</p>
+                    <h3>GitHub</h3>
+                    <p>Frontend(https://github.com/ryo121w/newNIV-frontend)</p>
+                    <p>Backend(https://github.com/ryo121w/newNIV-backend)</p>
                 </div>
             </div>
 
