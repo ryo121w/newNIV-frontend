@@ -207,8 +207,8 @@ function EntryPage() {
 
                 <div className={styles['readme-github']}>
                     <h3>GitHub</h3>
-                    <p>Frontend(https://github.com/ryo121w/newNIV-frontend)</p>
-                    <p>Backend(https://github.com/ryo121w/newNIV-backend)</p>
+                    <p><a href="https://github.com/ryo121w/newNIV-frontend" target="_blank" rel="noopener noreferrer">Frontend(https://github.com/ryo121w/newNIV-frontend)</a></p>
+                    <p><a href="https://github.com/ryo121w/newNIV-backend" target="_blank" rel="noopener noreferrer">Backend(https://github.com/ryo121w/newNIV-backend)</a></p>
                 </div>
             </div>
 

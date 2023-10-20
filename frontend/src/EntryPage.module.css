@@ -318,6 +318,20 @@ body {
   font-weight: 900;
 }
 
+
+
+.readme-github a {
+  color: black;
+  /* リンクの色を黒に設定 */
+  text-decoration: none;
+  /* 下線を削除 */
+}
+
+.readme-github a:hover {
+  color: black;
+  /* ホバー時の色も黒に設定 */
+}
+
 /* ===================================================== */
 /* バックグラウンドイメージ */
 .backgroundImage {
@@ -380,7 +394,7 @@ body {
 }
 
 .video-ex {
-  color: #ffffff;
+  color: #535353;
   font-size: 8px;
   font-weight: 600;
   animation-delay: 0.8s;
@@ -421,10 +435,13 @@ body {
   /* アスペクト比を維持 */
   border-radius: 10px;
   /* 必要に応じてボーダーラジウスを追加 */
+  background-color: #4F19FD;
+  padding: 40px;
+  margin-top: 50px;
 }
 
 .video {
-  background-color: #4F19FD;
+
 
   display: flex;
   flex-direction: column;
@@ -435,6 +452,8 @@ body {
   border-radius: 10px;
   z-index: 1;
   padding: 20px;
+  margin-bottom: 40px;
+
 }
 
 .video-container {
@@ -451,6 +470,7 @@ body {
   /* 背景色をここに追加 */
   border-radius: 10px;
   position: relative;
+
 
 }
 
