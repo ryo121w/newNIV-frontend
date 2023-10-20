@@ -12,7 +12,7 @@ function EntryPage() {
     const videoRef = useRef({}); // videoRef をオブジェクトとして初期化
     const readmeTitle = "README";
     const splitReadmeTitle = readmeTitle.split('');
-
+    const [videoEnded, setVideoEnded] = useState(false);
     useEffect(() => {
         const menuItems = document.querySelectorAll('.menu-list p');
         menuItems.forEach(item => {
@@ -229,10 +229,16 @@ function EntryPage() {
                                 onClick={(e) => playPause(e, 'selectFile')}
                                 onMouseLeave={() => hideVideo('selectFile')}>
 
-                                <video ref={el => videoRef.current['selectFile'] = el}>
+                                <video
+                                    ref={el => videoRef.current['selectFile'] = el}
+                                    onEnded={() => {
+                                        setVideoEnded(true);
+                                        setIsPlaying(prevState => ({ ...prevState, selectFile: false })); // ここで動画の再生状態をfalseに更新
+                                    }}>
                                     <source src={`${process.env.PUBLIC_URL}/images/SelectFile.mp4`} type="video/mp4" />
-                                    お使いのブラウザは動画タグをサポートしていません。
                                 </video>
+
+
 
                                 {!isPlaying['selectFile'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'selectFile')}>
@@ -251,24 +257,28 @@ function EntryPage() {
 
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-
                             <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
                                 onMouseEnter={() => showVideo('generateGraph')}>Generate Graph</li>
 
                             <div className={`${styles['video']} ${isVisible['generateGraph'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'generateGraph')}
                                 onMouseLeave={() => hideVideo('generateGraph')}>
-                                <video ref={el => videoRef.current['generateGraph'] = el}>
+                                <video ref={el => videoRef.current['generateGraph'] = el}
+                                    onEnded={() => {
+                                        setVideoEnded(true);
+                                        setIsPlaying(prevState => ({ ...prevState, generateGraph: false })); // ここで動画の再生状態をfalseに更新
+                                    }}>
                                     <source src={`${process.env.PUBLIC_URL}/images/GenerateGraph.mp4`} type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
+
                                 {!isPlaying['generateGraph'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'generateGraph')}>
                                         <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
                                     </button>
                                 )}
-                                <p className={styles['video-ex']}>グラフを生成するときはGenerateボタンを押してください。ローダーが開始するのでそれまで少しの間待ってください。その後他の解析を行ってください</p>
 
+                                <p className={styles['video-ex']}>グラフを生成するときはGenerateボタンを押してください。ローダーが開始するのでそれまで少しの間待ってください。その後他の解析を行ってください</p>
                             </div>
                         </div>
 
@@ -279,11 +289,13 @@ function EntryPage() {
                             <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
                                 onMouseEnter={() => showVideo('concentration')}>Concentration</li>
 
-
                             <div className={`${styles['video']} ${isVisible['concentration'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'concentration')}
                                 onMouseLeave={() => hideVideo('concentration')}>
-                                <video ref={el => videoRef.current['concentration'] = el}>
+                                <video ref={el => videoRef.current['concentration'] = el}
+                                    onEnded={() => {
+                                        setIsPlaying(prevState => ({ ...prevState, concentration: false })); // ここで動画の再生状態をfalseに更新
+                                    }}>
                                     <source src={`${process.env.PUBLIC_URL}/images/Concentration.mp4`} type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
@@ -293,7 +305,6 @@ function EntryPage() {
                                     </button>
                                 )}
                                 <p className={styles['video-ex']}>モル吸光係数のグラフを出力する際は、水の濃度を入力する必要があるので濃度に対応する計算した水の濃度を入力したのちにGenerateボタンを押してください</p>
-
                             </div>
                         </div>
 
@@ -301,11 +312,13 @@ function EntryPage() {
                             <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
                                 onMouseEnter={() => showVideo('download')}>Download</li>
 
-
                             <div className={`${styles['video']} ${isVisible['download'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'download')}
                                 onMouseLeave={() => hideVideo('download')}>
-                                <video ref={el => videoRef.current['download'] = el}>
+                                <video ref={el => videoRef.current['download'] = el}
+                                    onEnded={() => {
+                                        setIsPlaying(prevState => ({ ...prevState, download: false })); // ここで動画の再生状態をfalseに更新
+                                    }}>
                                     <source src={`${process.env.PUBLIC_URL}/images/Download.mp4`} type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
@@ -315,7 +328,6 @@ function EntryPage() {
                                     </button>
                                 )}
                                 <p className={styles['video-ex']}>Downloadボタンがある場合は、エクセルデータをダウンロードすることができます。ダウンロードしたデータをDynamicGraphやその他の解析に役立ててください</p>
-
                             </div>
                         </div>
 
@@ -325,7 +337,10 @@ function EntryPage() {
                             <div className={`${styles['video']} ${isVisible['derivative'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'derivative')}
                                 onMouseLeave={() => hideVideo('derivative')}>
-                                <video ref={el => videoRef.current['derivative'] = el}>
+                                <video ref={el => videoRef.current['derivative'] = el}
+                                    onEnded={() => {
+                                        setIsPlaying(prevState => ({ ...prevState, derivative: false })); // ここで動画の再生状態をfalseに更新
+                                    }}>
                                     <source src={`${process.env.PUBLIC_URL}/images/Derivative.mp4`} type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
@@ -335,7 +350,6 @@ function EntryPage() {
                                     </button>
                                 )}
                                 <p className={styles['video-ex']}>二次微分から四次微分まで微分することができます。変更したい際はヘッダーにあるハンバーガーボタンを押すと微分を変更することができます</p>
-
                             </div>
                         </div>
                     </ul>
@@ -380,8 +394,8 @@ function EntryPage() {
                         <li className={styles['static-list']}>Second Derivative</li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 
 }

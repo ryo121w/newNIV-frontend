@@ -431,13 +431,14 @@ body {
 .video video {
   max-width: 100%;
   /* 最大幅を100%に設定して、親要素を超えないようにします */
+  max-height: 100%;
   height: auto;
   /* アスペクト比を維持 */
   border-radius: 10px;
   /* 必要に応じてボーダーラジウスを追加 */
   background-color: #4F19FD;
   padding: 40px;
-  margin-top: 50px;
+  margin: 0;
 }
 
 .video {
@@ -451,7 +452,7 @@ body {
   width: 100%;
   border-radius: 10px;
   z-index: 1;
-  padding: 20px;
+  padding: 0;
   margin-bottom: 40px;
 
 }
@@ -478,24 +479,40 @@ body {
 
 /* ===================================================== */
 /* ビデオアニメーション */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .video-hidden {
   opacity: 0;
   visibility: hidden;
-  height: 0;
-  /* ビデオの高さを0に */
+  max-height: 0;
   overflow: hidden;
-  /* コンテンツがはみ出さないように */
-  transition: opacity 0.5s ease-out, height 0.5s ease-out;
-  /* heightの変化にもアニメーションを追加 */
+  transform: translateY(-20px);
+  /* 初期位置を少し上に設定 */
+  transition: opacity 0.5s ease-out, max-height 0.5s ease-out, transform 0.5s ease-out;
+  /* transformの変化にもアニメーションを追加 */
 }
 
 .video-visible {
   opacity: 1;
   visibility: visible;
-  height: 260px;
-  /* 例: 300px, ビデオの本来の高さに設定 */
-  transition: opacity 0.5s ease-in, height 0.5s ease-in;
-  /* heightの変化にもアニメーションを追加 */
+  max-height: 500px;
+  /* 例: 500px, ビデオの本来の最大高さに設定 */
+  transform: translateY(0);
+  /* 終了位置を通常の位置に設定 */
+  animation: slideIn 0.5s forwards;
+  /* アニメーションを適用 */
+  transition: opacity 0.5s ease-in, max-height 0.5s ease-in, transform 0.5s ease-in;
+  /* transformの変化にもアニメーションを追加 */
 }
 
 /* ===================================================== */
