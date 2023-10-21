@@ -4,6 +4,7 @@ import styles from './EntryPage.module.css'
 import StaticGraph from './StaticGraph';
 import DynamicGraph from './Dynamic/DynamicGraph';
 import FUVGraph from './FUVGraph/FUVGraph';
+import Other from './Other/Other';
 
 function EntryPage() {
     const [choice, setChoice] = useState(null);
@@ -120,6 +121,8 @@ function EntryPage() {
         return <DynamicGraph />;
     } else if (choice === "fuv") { // 追加
         return <FUVGraph />;
+    } else if (choice === "other") {
+        return <Other />
     }
 
     return (
@@ -148,7 +151,7 @@ function EntryPage() {
 
                     <button className={styles['btn']} onClick={() => setChoice('fuv')}>FUV</button>
 
-                    <button className={styles['btn']} onClick={() => setChoice('fuv')}>Others</button>
+                    <button className={styles['btn']} onClick={() => setChoice('other')}>Others</button>
 
                 </div>
             </div>
@@ -222,9 +225,9 @@ function EntryPage() {
 
                     <ul>
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`} onMouseEnter={() => showVideo('selectFile')}>
+                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`} onMouseEnter={() => showVideo('selectFile')}>
                                 Select File
-                            </li>
+                            </p>
                             <div className={`${styles['video']} ${isVisible['selectFile'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'selectFile')}
                                 onMouseLeave={() => hideVideo('selectFile')}>
@@ -257,8 +260,8 @@ function EntryPage() {
 
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('generateGraph')}>Generate Graph</li>
+                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('generateGraph')}>Generate Graph</p>
 
                             <div className={`${styles['video']} ${isVisible['generateGraph'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'generateGraph')}
@@ -286,8 +289,8 @@ function EntryPage() {
 
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('concentration')}>Concentration</li>
+                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('concentration')}>Concentration</p>
 
                             <div className={`${styles['video']} ${isVisible['concentration'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'concentration')}
@@ -309,8 +312,8 @@ function EntryPage() {
                         </div>
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('download')}>Download</li>
+                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('download')}>Download</p>
 
                             <div className={`${styles['video']} ${isVisible['download'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'download')}
@@ -332,8 +335,8 @@ function EntryPage() {
                         </div>
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('derivative')}>Derivative</li>
+                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('derivative')}>Derivative</p>
                             <div className={`${styles['video']} ${isVisible['derivative'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'derivative')}
                                 onMouseLeave={() => hideVideo('derivative')}>

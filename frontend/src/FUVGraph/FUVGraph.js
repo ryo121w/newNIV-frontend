@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import FUVFileUploader from './FUVFileUploader';
 import FUVFileKK from './FUVFileKK';
+import SecondDerivativeGraphComponent from '../Static/Derivative/SecondDerivativeGraphComponent';
+import FUVSecondDerivative from './FUVSecondDerivative';
 
 
 function FUVGraph() {
@@ -20,7 +22,7 @@ function FUVGraph() {
                 </div>
             )}
             <FUVFileKK />
-
+            <FUVSecondDerivative />
 
         </div>
     );

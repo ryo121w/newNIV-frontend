@@ -391,6 +391,7 @@ body {
 .static-list {
   font-weight: 700;
   animation-delay: 0.4s;
+  margin-bottom: 40px;
 }
 
 .video-ex {
@@ -437,7 +438,7 @@ body {
   border-radius: 10px;
   /* 必要に応じてボーダーラジウスを追加 */
   background-color: #4F19FD;
-  padding: 40px;
+  padding: 30px;
   margin: 0;
 }
 
