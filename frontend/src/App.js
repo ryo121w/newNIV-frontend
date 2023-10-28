@@ -69,7 +69,7 @@ function App() {
     }
 
     return (
-        <Router basename="/frontend">
+        <Router>
 
 
             <Routes>
