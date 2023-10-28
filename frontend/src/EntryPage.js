@@ -163,7 +163,6 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                     <li className={styles['btn']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
                     <li className={styles['btn']} onClick={() => setChoice('fuv')}><p>FUV</p></li>
                     <li className={styles['btn']} onClick={() => setChoice('other')}><p>Other</p></li>
-
                 </div>
             </div>
             <NavigationBar setChoice={setChoice} />
