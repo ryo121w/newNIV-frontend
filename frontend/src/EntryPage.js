@@ -1,30 +1,18 @@
+// EntryPage.js
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './EntryPage.module.css';
+import styles from './EntryPage.module.css'
 import StaticGraph from './StaticGraph';
 import DynamicGraph from './Dynamic/DynamicGraph';
 import FUVGraph from './FUVGraph/FUVGraph';
-import Other from './Other/Other';
-import NavigationBar from './NavigationBar';
-import { Link } from 'react-router-dom';
 
-
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-
-
-function EntryPage({ isSuperUserAuthenticated, currentUser }) {
+function EntryPage() {
     const [choice, setChoice] = useState(null);
     const [randomFile, setRandomFile] = useState('');
     const [isPlaying, setIsPlaying] = useState({}); // 動画の再生状態を管理する state
     const videoRef = useRef({}); // videoRef をオブジェクトとして初期化
-
-
     const readmeTitle = "README";
     const splitReadmeTitle = readmeTitle.split('');
     const [videoEnded, setVideoEnded] = useState(false);
-
-
-
     useEffect(() => {
         const menuItems = document.querySelectorAll('.menu-list p');
         menuItems.forEach(item => {
@@ -36,7 +24,6 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
             }
         });
     }, []);
-
 
 
 
@@ -122,19 +109,18 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
         };
     }, []);
 
-    // 通常の認証またはスーパーユーザーとしての認証が完了した場合、選択されたページを表示
+
+
+
+
 
     if (choice === "static") {
         return <StaticGraph />;
     } else if (choice === "dynamic") {
         return <DynamicGraph />;
-    } else if (choice === "fuv") {
+    } else if (choice === "fuv") { // 追加
         return <FUVGraph />;
-    } else if (choice === "other") {
-        return <Other />
     }
-
-
 
     return (
         <div>
@@ -144,13 +130,10 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                     {renderRandomFile()}
                     <div className={styles['menu']}>
                         <ul>
-                            <li className={styles['menu-list']} onClick={() => setChoice('static')}><p>StaticGraph</p></li>
-                            <li className={styles['menu-list']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
-                            <li className={styles['menu-list']} onClick={() => setChoice('fuv')}><p>FUV</p></li>
-                            <li className={styles['menu-list']} onClick={() => setChoice('other')}><p>Other</p></li>
-                            {isSuperUserAuthenticated && (
-                                <li className={styles['menu-list']} onClick={() => window.location.href = `${BACKEND_URL}xzoDx2yX/`}><p>Admin</p></li>
-                            )}
+                            <li className={styles['menu-list']}><p>StaticGraph</p></li>
+                            <li className={styles['menu-list']}><p>DynamicGraph</p></li>
+                            <li className={styles['menu-list']}><p>FUV</p></li>
+                            <li className={styles['menu-list']}><p>Other</p></li>
 
                         </ul>
                     </div>
@@ -159,14 +142,16 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
                 {/* SideButton */}
                 <div className={styles['button-container']}>
-                    <li className={styles['btn']} onClick={() => setChoice('static')}><p>StaticGraph</p></li>
-                    <li className={styles['btn']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
-                    <li className={styles['btn']} onClick={() => setChoice('fuv')}><p>FUV</p></li>
-                    <li className={styles['btn']} onClick={() => setChoice('other')}><p>Other</p></li>
+                    <button className={styles['btn']} onClick={() => setChoice('static')}>StaticGraph(Django)</button>
+
+                    <button className={styles['btn']} onClick={() => setChoice('dynamic')}>DynamicGraph(D3.js)</button>
+
+                    <button className={styles['btn']} onClick={() => setChoice('fuv')}>FUV</button>
+
+                    <button className={styles['btn']} onClick={() => setChoice('fuv')}>Others</button>
+
                 </div>
             </div>
-            <NavigationBar setChoice={setChoice} />
-
 
 
 
@@ -237,9 +222,9 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
                     <ul>
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`} onMouseEnter={() => showVideo('selectFile')}>
+                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`} onMouseEnter={() => showVideo('selectFile')}>
                                 Select File
-                            </p>
+                            </li>
                             <div className={`${styles['video']} ${isVisible['selectFile'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'selectFile')}
                                 onMouseLeave={() => hideVideo('selectFile')}>
@@ -272,8 +257,8 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('generateGraph')}>Generate Graph</p>
+                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('generateGraph')}>Generate Graph</li>
 
                             <div className={`${styles['video']} ${isVisible['generateGraph'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'generateGraph')}
@@ -301,8 +286,8 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('concentration')}>Concentration</p>
+                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('concentration')}>Concentration</li>
 
                             <div className={`${styles['video']} ${isVisible['concentration'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'concentration')}
@@ -324,8 +309,8 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                         </div>
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('download')}>Download</p>
+                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('download')}>Download</li>
 
                             <div className={`${styles['video']} ${isVisible['download'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'download')}
@@ -347,8 +332,8 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                         </div>
 
                         <div className={`${styles['video-container']} ${styles['fadeInUp']}`}>
-                            <p className={`${styles['static-list']} ${styles['fadeInUp']}`}
-                                onMouseEnter={() => showVideo('derivative')}>Derivative</p>
+                            <li className={`${styles['static-list']} ${styles['fadeInUp']}`}
+                                onMouseEnter={() => showVideo('derivative')}>Derivative</li>
                             <div className={`${styles['video']} ${isVisible['derivative'] ? styles['video-visible'] : styles['video-hidden']}`}
                                 onClick={(e) => playPause(e, 'derivative')}
                                 onMouseLeave={() => hideVideo('derivative')}>
