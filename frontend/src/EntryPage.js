@@ -5,7 +5,7 @@ import DynamicGraph from './Dynamic/DynamicGraph';
 import FUVGraph from './FUVGraph/FUVGraph';
 import Other from './Other/Other';
 import NavigationBar from './NavigationBar';
-import { Link } from 'react-router-dom';
+
 
 
 
