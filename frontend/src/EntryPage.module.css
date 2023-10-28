@@ -116,9 +116,14 @@ body {
 
 
 .btn {
+  list-style: none;
   animation-name: buttonFadeInDown;
   animation-duration: 0.5s;
   animation-fill-mode: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+
 }
 
 .btn:nth-child(1) {

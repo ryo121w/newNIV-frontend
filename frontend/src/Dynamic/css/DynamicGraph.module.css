@@ -4,7 +4,8 @@
     /* 水平方向の中央に */
     align-items: center;
     /* 垂直方向の中央に */
-    height: 600px;
+    width: 95%;
+    height: auto;
     /* 画面の高さに合わせる */
 
     margin-top: 30px;

@@ -29,9 +29,7 @@
     margin-bottom: 0px;
 }
 
-.Plot {
-    width: 70%;
-}
+
 
 
 
@@ -43,6 +41,12 @@
 
 .graph-fade-in {
     animation: fade-in 2.5s ease-in forwards;
+    max-width: 90%;
+    width: 90%;
+    /* グラフの幅をコンテナの幅に合わせる */
+    height: 100%;
+    /* グラフの高さをコンテナの高さに合わせる */
+
 }
 
 

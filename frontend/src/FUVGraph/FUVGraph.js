@@ -3,7 +3,7 @@ import FUVFileUploader from './FUVFileUploader';
 import FUVFileKK from './FUVFileKK';
 import SecondDerivativeGraphComponent from '../Static/Derivative/SecondDerivativeGraphComponent';
 import FUVSecondDerivative from './FUVSecondDerivative';
-
+import NavigationBar from '../NavigationBar';
 
 function FUVGraph() {
     const [fileUrl, setFileUrl] = useState(null);
@@ -14,6 +14,8 @@ function FUVGraph() {
 
     return (
         <div>
+
+            <NavigationBar />
             <FUVFileUploader onFileUploaded={handleFileUploaded} />
             {fileUrl && (
                 <div>

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import DynamicPlotlyChart from './Chart/DynamicPlotlyChart';
 import AdvancedSpectrumChart from './Chart/AdvancedSpectrumChart';
 import styles from './css/DynamicGraph.module.css';
-
+import DynamicMarkers from './Chart/DynamicMarkers';
+import NavigationBar from '../NavigationBar';
 function DynamicGraph() {
     const [scrolled, setScrolled] = useState(false);
 
@@ -46,9 +47,15 @@ function DynamicGraph() {
                     <li><p onClick={() => scrollTo('Concentration')}>Area Peaks</p></li>
                 </ul>
             </div>
+            <NavigationBar />
+
 
             <div id="GraphComponent" className={styles['content']}>  {/* idを追加 */}
                 <DynamicPlotlyChart />
+            </div>
+
+            <div id="GraphComponent" className={styles['content']}>  {/* idを追加 */}
+                <DynamicMarkers />
             </div>
         </div>
     );

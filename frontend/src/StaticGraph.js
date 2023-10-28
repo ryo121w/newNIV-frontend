@@ -10,6 +10,8 @@ import PrincipalComponentAnalysis from './Static/PrincipalComponentAnalysis';
 import MultipleCorrespondenceAnalysis from './Static/MultipleCorrespondenceAnalysis';
 import styles from './Static.module.css';
 import LinearProgress from './LinearProgress';
+import { BrowserRouter as Router } from 'react-router-dom';
+import NavigationBar from './NavigationBar';
 
 function StaticGraph() {
   const [selectedDifferential, setSelectedDifferential] = useState("ONE");
@@ -89,6 +91,8 @@ function StaticGraph() {
             handleChange={handleChange}
           />
         </div>
+
+        <NavigationBar />
 
 
         <FileUploader isLoading={isLoading} setIsLoading={setIsLoading} />
