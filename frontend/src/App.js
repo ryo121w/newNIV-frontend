@@ -85,6 +85,7 @@ function App() {
             </Routes>
             {shouldNavigateToEntry && <Navigate to="/entry" replace onNavigate={() => setShouldNavigateToEntry(false)} />}
             {isAuthenticated && <LogoutButton onLogout={handleLogout} />}
+            <Route path="*" element={<Navigate to="/" replace />} />
         </Router>
     );
 }
