@@ -77,7 +77,7 @@ function App() {
                 {authView === 'superuser-login' && <Route path="/" element={<SuperUserLogin onSuperUserLogin={(user) => { handleSuperUserLogin(user); setShouldNavigateToEntry(true); }} />} />}
                 {authView === 'signup' && <Route path="/" element={<Signup onSignup={() => setAuthView('waitingForApproval')} />} />}
                 {authView === 'waitingForApproval' && <Route path="/" element={<WaitingForApproval />} />}
-                {isAuthenticated ? <Route path="/entry" element={<EntryPage isSuperUserAuthenticated={isSuperUserAuthenticated} currentUser={currentUser} />} /> : <Route path="*" element={<Navigate to="/" replace />} />}
+                {isAuthenticated ? <Route path="/entry" element={<EntryPage isSuperUserAuthenticated={isSuperUserAuthenticated} currentUser={currentUser} />} /> : <Route path="*" element={<Navigate to="/entry" replace />} />}
                 <Route path="/static" element={<StaticGraph />} />
                 <Route path="/dynamic" element={<DynamicGraph />} />
                 <Route path="/fuv" element={<FUVGraph />} />
