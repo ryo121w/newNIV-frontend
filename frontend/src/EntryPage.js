@@ -163,7 +163,6 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                     <li className={styles['btn']} onClick={() => setChoice('other')}><p>Other</p></li>
                 </div>
             </div>
-            <NavigationBar setChoice={setChoice} />
 
 
 
