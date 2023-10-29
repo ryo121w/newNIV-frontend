@@ -58,7 +58,7 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
     // ランダムに選択されたファイルを表示
     const renderRandomFile = () => {
-        return <img className={styles['logo']} src={`${process.env.PUBLIC_URL}${randomFile}`} alt="NIV Logo" />;
+        return <img className={styles['logo']} src={`${randomFile}`} alt="NIV Logo" />;
     };
 
     const playPause = (event, videoKey) => { // videoKey を引数として追加
@@ -177,7 +177,7 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                     ))}
                 </h1>
                 <div className={styles['readme-abs']}>
-                    <img className={styles['readme-logo']} src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578757/mp4/images/NIV6_uw4eqq.gif' />
+                    <img className={styles['readme-logo']} src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578687/mp4/images/NIVLogo_hljhhq.png' />
                     <h1 className={styles['readme-niv']}>Near Infrared Visualizer</h1>
                 </div>
 
