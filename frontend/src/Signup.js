@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
+import styles from './Signup.module.css';  // Assuming the CSS module is named Signup.module.css
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 function Signup({ onSignup }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState(null); // 追加
-    const [isLoading, setIsLoading] = useState(false); // 追加
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        // APIエンドポイントのURL
-        const apiUrl = `${BACKEND_URL}signup/`; // 環境変数を利用
+        const apiUrl = `${BACKEND_URL}signup/`;
 
-        setIsLoading(true); // ローディング状態の開始
+        setIsLoading(true);
 
         try {
-            // APIにPOSTリクエストを送信
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
@@ -29,50 +28,50 @@ function Signup({ onSignup }) {
                 })
             });
 
-            // レスポンスをJSON形式で解析
             const data = await response.json();
 
-            // レスポンスのステータスコードやデータ内容に基づいて条件分岐
             if (response.status === 201) {
                 onSignup(true);
-                // 必要に応じて、トークンの保存などの処理を追加
             } else {
                 console.error("Signup failed:", data.message);
-                setErrorMessage(data.message); // エラーメッセージの状態管理を追加
+                setErrorMessage(data.message);
             }
         } catch (error) {
             console.error("API request failed:", error);
-            setErrorMessage("An error occurred while trying to sign up."); // エラーメッセージの状態管理を追加
+            setErrorMessage("An error occurred while trying to sign up.");
         } finally {
-            setIsLoading(false); // ローディング状態の終了
+            setIsLoading(false);
         }
     };
 
     return (
-        <div>
-            <h2>Signup</h2>
-            <form onSubmit={handleSignup}>
-                <div>
-                    <label>Username:</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <span className={styles.card__title}>Signup</span>
+                <p className={styles.card__content}>Create your account to get started.</p>
+                <div className={styles.card__form}>
+                    <div>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Your Username"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required
+                        />
+                    </div>
+                    {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+                    <button className={styles.signUp} onClick={handleSignup} disabled={isLoading}>Signup</button>
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* エラーメッセージの表示 */}
-                <button type="submit" disabled={isLoading}>Signup</button> {/* isLoading に基づいてボタンを無効化 */}
-            </form>
+            </div>
         </div>
     );
 }

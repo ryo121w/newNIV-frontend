@@ -81,38 +81,40 @@ function FUVSecondDerivative() {
         <div className={styles['Derivative-container']}>
             <h5 className={styles['title']}>二次微分</h5>
 
-            <label className={styles['label']}>
-                ポイント数:
-                <input
-                    type="number"
-                    value={points}
-                    onChange={e => setPoints(e.target.value)}
-                    className={styles['input']}
-                />
-            </label>
+            <div className={styles['input-section']}>
+                <label className={styles['label']}>
+                    ポイント数:
+                    <input
+                        type="number"
+                        value={points}
+                        onChange={e => setPoints(e.target.value)}
+                        className={styles['input']}
+                    />
+                </label>
 
-            <label className={styles['label']}>
-                ファイルアップロード:
-                <input
-                    type="file"
-                    onChange={handleFileChange}
-                    className={styles['file-input']}
-                />
-            </label>
+                <label className={styles['label']}>
+                    ファイルアップロード:
+                    <input
+                        type="file"
+                        onChange={handleFileChange}
+                        className={styles['file-input']}
+                    />
+                </label>
 
-            <button onClick={handleUpload} disabled={loading || !file} className={styles['cssbuttons-io-button']}>
-                ファイルアップロード
-            </button>
+                <button onClick={handleUpload} disabled={loading || !file} className={styles['cssbuttons-io-button']}>
+                    ファイルアップロード
+                </button>
+            </div>
 
-            <button onClick={handleDerivative} disabled={loading || !file} className={styles['cssbuttons-io-button']}>
-                二次微分
-            </button>
+            <div className={styles['buttons']}>
+                <button onClick={handleDerivative} disabled={loading || !file} className={styles['cssbuttons-io-button']}>
+                    二次微分
+                </button>
 
-
-            <button onClick={handleDownload} className={styles['cssbuttons-io-button']}>
-                Download
-            </button>
-
+                <button onClick={handleDownload} className={styles['cssbuttons-io-button']}>
+                    Download
+                </button>
+            </div>
 
             {loading && <div className={styles['loading']}>処理中...</div>}
 

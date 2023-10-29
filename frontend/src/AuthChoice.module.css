@@ -1,0 +1,50 @@
+/* 既存のCSS */
+/* 既存のCSS */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+
+    border-radius: 15px;
+
+    max-width: 400px;
+    /* コンテナの最大幅を設定（必要に応じて変更可能） */
+    margin: auto;
+    /* 中央に配置 */
+}
+
+/* その他のCSSはそのまま */
+
+
+.button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* 新しいCSSを追加 */
+.button {
+    border: 1px solid black;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    font-weight: bolder;
+    font-size: 15px;
+    box-shadow: 0px 0px 1px;
+    transition: all 2s ease;
+    /* 'transform' ではなく 'transition' です */
+    transition-duration: .3s;
+}
+
+.button:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 7px 1px rgb(0, 0, 0);
+}
+
+.button:active {
+    transform: translateY(10px);
+    box-shadow: 0px 0px 1px;
+}

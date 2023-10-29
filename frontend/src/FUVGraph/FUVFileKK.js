@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './css/FUVFileKK.module.css';
-import Plot from 'react-plotly.js';
-import * as XLSX from 'xlsx';
+import FileUploader from './FUVFileUploader';
+
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -54,49 +54,45 @@ function KKTransformComponent() {
     };
 
     return (
-        <div className={styles['Graph-container']}>
-            <div className={styles['Graph-left-side']}>
-                <h5 className={styles['title']}>KK変換</h5>
+        <div className={styles['container']}>
+            <div className={styles['content']}>
+                <div className={styles['left-section']}>
+                    <FileUploader />
+                </div>
+                <div className={styles['right-section']}>
+                    <label className={styles['label']}>
+                        サンプルの屈折率 (n_inf):
+                        <input
+                            type="number"
+                            value={nInf}
+                            onChange={e => setNInf(e.target.value)}
+                            className={styles['input']}
+                        />
+                    </label>
 
-                <label className={styles['label']}>
-                    サンプルの屈折率 (n_inf):
-                    <input
-                        type="number"
-                        value={nInf}
-                        onChange={e => setNInf(e.target.value)}
-                        className={styles['input']}
-                    />
-                </label>
-
-                <label className={styles['label']}>
-                    入射角 (incident_angle):
-                    <input
-                        type="number"
-                        value={incidentAngle}
-                        onChange={e => setIncidentAngle(e.target.value)}
-                        className={styles['input']}
-                    />
-                </label>
-
-
-
-                {/* ... */}
+                    <label className={styles['label']}>
+                        入射角 (incident_angle):
+                        <input
+                            type="number"
+                            value={incidentAngle}
+                            onChange={e => setIncidentAngle(e.target.value)}
+                            className={styles['input']}
+                        />
+                    </label>
+                </div>
             </div>
+            <div className={styles['buttons']}>
+                <button onClick={handleKKTransform} disabled={loading} className={styles['cssbuttons-io-button']}>
+                    KK変換を開始
+                </button>
 
-
-
-
-
-            <button onClick={handleKKTransform} disabled={loading} className={styles['cssbuttons-io-button']}>
-                KK変換を開始
-            </button>
-
-            <button onClick={handleDownload} disabled={loading} className={styles['cssbuttons-io-button']}>
-                データをダウンロード
-            </button>
-
+                <button onClick={handleDownload} disabled={loading} className={styles['cssbuttons-io-button']}>
+                    データをダウンロード
+                </button>
+            </div>
             {loading && <div className={styles['loading']}>変換中...</div>}
         </div>
+
     );
 }
 

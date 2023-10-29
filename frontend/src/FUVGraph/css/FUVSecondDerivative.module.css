@@ -1,0 +1,35 @@
+/* FUVSecondDerivative.module.css */
+.Derivative-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* ビューポートの高さを全て使用 */
+    padding: 20px;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    /* 中央に配置 */
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.cssbuttons-io-button {
+    flex: 1;
+    margin: 0 10px;
+}
+
+/* ... (他のスタイルは変更無し) */

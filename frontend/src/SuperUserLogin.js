@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import styles from './SuperUserLogin.module.css';  // Assuming the CSS module is named SuperUserLogin.module.css
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-function SuperUserLogin({ onSuperUserLogin }) {  // 1. onLoginをonSuperUserLoginに変更
+function SuperUserLogin({ onSuperUserLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
@@ -43,34 +44,36 @@ function SuperUserLogin({ onSuperUserLogin }) {  // 1. onLoginをonSuperUserLogi
         }
     };
 
-
     return (
-        <div>
-            <h2>SuperUser Login</h2>
-            {errorMessage && <p className="error-message">{errorMessage}</p>} {/* エラーメッセージの表示 */}
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Username:</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <span className={styles.card__title}>SuperUser Login</span>
+                <p className={styles.card__content}>Enter your SuperUser credentials to access the admin dashboard.</p>
+                <div className={styles.card__form}>
+                    <div>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Your Username"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required
+                        />
+                    </div>
+                    {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+                    <button className={styles.signUp} onClick={handleLogin} disabled={isLoading}>
+                        {isLoading ? "Logging in..." : "Login"}
+                    </button>
                 </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit" disabled={isLoading}>
-                    {isLoading ? "Logging in..." : "Login"} {/* ローディング状態に応じてボタンテキストの変更 */}
-                </button>
-            </form>
+            </div>
         </div>
     );
 }
