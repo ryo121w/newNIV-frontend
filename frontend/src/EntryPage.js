@@ -250,10 +250,8 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                                         setVideoEnded(true);
                                         setIsPlaying(prevState => ({ ...prevState, selectFile: false })); // ここで動画の再生状態をfalseに更新
                                     }}>
-                                    <source src={`${process.env.PUBLIC_URL}/images/SelectFile.mp4`} type="video/mp4" />
+                                    <source src="https://res.cloudinary.com/dgqqlzauu/video/upload/v1698578689/mp4/images/SelectFile_u6saxl.mp4" type="video/mp4" />
                                 </video>
-
-
 
                                 {!isPlaying['selectFile'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'selectFile')}>
