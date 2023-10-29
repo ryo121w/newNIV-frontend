@@ -72,8 +72,8 @@ const DynamicMarkers = () => {
 
     const layout = {
         dragmode: 'zoom',
-        width: undefined,  // この行を追加
-        height: undefined,
+        width: 900,  // この行を追加
+        height: 600,
 
         xaxis: {
             title: {

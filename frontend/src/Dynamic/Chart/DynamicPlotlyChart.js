@@ -72,8 +72,8 @@ const DynamicPlotlyChart = () => {
 
     const layout = {
         dragmode: 'zoom',
-        width: 600,  // グラフの幅を設定
-        height: 400,
+        width: 900,  // グラフの幅を設定
+        height: 600,
 
         xaxis: {
             title: {
