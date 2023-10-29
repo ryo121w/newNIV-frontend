@@ -42,13 +42,11 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
 
     const files = [
-        '/images/NIVLogo.png',
-        '/images/NIV.gif',
-        '/images/NIV2.gif',
-        '/images/NIV3.gif',
-        '/images/NIV4.gif',
-        '/images/NIV5.gif',
-        '/images/NIV6.gif',
+        'https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578757/mp4/images/NIV6_uw4eqq.gif',
+        'https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578729/mp4/images/NIV2_cj1jgs.gif',
+        'https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578718/mp4/images/NIV4_ytd4tw.gif',
+        'https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578718/mp4/images/NIV3_agzjfb.gif',
+        'https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578711/mp4/images/NIV_wyj5wk.gif',
     ];
 
 
@@ -179,7 +177,7 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                     ))}
                 </h1>
                 <div className={styles['readme-abs']}>
-                    <img className={styles['readme-logo']} src={`${process.env.PUBLIC_URL}/images/NIVLogo.png`} />
+                    <img className={styles['readme-logo']} src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578757/mp4/images/NIV6_uw4eqq.gif' />
                     <h1 className={styles['readme-niv']}>Near Infrared Visualizer</h1>
                 </div>
 
@@ -255,7 +253,7 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
                                 {!isPlaying['selectFile'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'selectFile')}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
+                                        <img src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578687/mp4/images/Play_qitnhr.png' alt="Play Button" />
                                     </button>
                                 )}
 
@@ -281,13 +279,13 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                                         setVideoEnded(true);
                                         setIsPlaying(prevState => ({ ...prevState, generateGraph: false })); // ここで動画の再生状態をfalseに更新
                                     }}>
-                                    <source src={`${process.env.PUBLIC_URL}/images/GenerateGraph.mp4`} type="video/mp4" />
+                                    <source src='https://res.cloudinary.com/dgqqlzauu/video/upload/v1698578689/mp4/images/GenerateGraph_yjir8l.mp4' type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
 
                                 {!isPlaying['generateGraph'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'generateGraph')}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
+                                        <img src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578687/mp4/images/Play_qitnhr.png' alt="Play Button" />
                                     </button>
                                 )}
 
@@ -309,12 +307,12 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                                     onEnded={() => {
                                         setIsPlaying(prevState => ({ ...prevState, concentration: false })); // ここで動画の再生状態をfalseに更新
                                     }}>
-                                    <source src={`${process.env.PUBLIC_URL}/images/Concentration.mp4`} type="video/mp4" />
+                                    <source src='https://res.cloudinary.com/dgqqlzauu/video/upload/v1698578696/mp4/images/Concentration_dkzwev.mp4' type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
                                 {!isPlaying['concentration'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'concentration')}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
+                                        <img src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578687/mp4/images/Play_qitnhr.png' alt="Play Button" />
                                     </button>
                                 )}
                                 <p className={styles['video-ex']}>モル吸光係数のグラフを出力する際は、水の濃度を入力する必要があるので濃度に対応する計算した水の濃度を入力したのちにGenerateボタンを押してください</p>
@@ -332,12 +330,12 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                                     onEnded={() => {
                                         setIsPlaying(prevState => ({ ...prevState, download: false })); // ここで動画の再生状態をfalseに更新
                                     }}>
-                                    <source src={`${process.env.PUBLIC_URL}/images/Download.mp4`} type="video/mp4" />
+                                    <source src='https://res.cloudinary.com/dgqqlzauu/video/upload/v1698578689/mp4/images/Download_xyd73t.mp4' type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
                                 {!isPlaying['download'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'download')}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
+                                        <img src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578687/mp4/images/Play_qitnhr.png' alt="Play Button" />
                                     </button>
                                 )}
                                 <p className={styles['video-ex']}>Downloadボタンがある場合は、エクセルデータをダウンロードすることができます。ダウンロードしたデータをDynamicGraphやその他の解析に役立ててください</p>
@@ -354,12 +352,12 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                                     onEnded={() => {
                                         setIsPlaying(prevState => ({ ...prevState, derivative: false })); // ここで動画の再生状態をfalseに更新
                                     }}>
-                                    <source src={`${process.env.PUBLIC_URL}/images/Derivative.mp4`} type="video/mp4" />
+                                    <source src='https://res.cloudinary.com/dgqqlzauu/video/upload/v1698578703/mp4/images/Derivative_ovrknd.mp4' type="video/mp4" />
                                     お使いのブラウザは動画タグをサポートしていません。
                                 </video>
                                 {!isPlaying['derivative'] && (
                                     <button className={styles['play-button']} onClick={(e) => playPause(e, 'derivative')}>
-                                        <img src={`${process.env.PUBLIC_URL}/images/Play.png`} alt="Play Button" />
+                                        <img src='https://res.cloudinary.com/dgqqlzauu/image/upload/v1698578687/mp4/images/Play_qitnhr.png' alt="Play Button" />
                                     </button>
                                 )}
                                 <p className={styles['video-ex']}>二次微分から四次微分まで微分することができます。変更したい際はヘッダーにあるハンバーガーボタンを押すと微分を変更することができます</p>
