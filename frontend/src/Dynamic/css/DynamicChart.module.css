@@ -49,6 +49,90 @@
 
 }
 
+.settings-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.settings-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(210, 209, 209, 0.513);
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 15px;
+    /* spacing between controls */
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* spacing between label, slider, and value */
+}
+
+.label-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* spacing between label and input field */
+}
+
+.label-input .styled-input {
+    line-height: 28px;
+    border: 1px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.label-input .styled-input:focus,
+.label-input .styled-input:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+}
+
+.label-input .styled-input::placeholder {
+    color: #777;
+}
+
+.label-input .styled-input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+
+
+
+.color-pickers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(210, 209, 209, 0.513);
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 15px;
+    /* spacing between color pickers */
+}
+
+
+
+
+
+
+
+
 
 @keyframes slide-up {
     from {
