@@ -1,0 +1,42 @@
+.App-Logo {
+    display: flex;
+    justify-content: center;
+    /* 画面の中心に配置 */
+    align-items: center;
+    /* 縦方向の中心に配置 */
+    height: 3vh;
+    /* 画面の高さに合わせる */
+    background-color: rgba(239, 239, 239, 0.725);
+    width: 100%;
+}
+
+.App-Logo.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+}
+
+/* サイドバーul */
+.App-Logo ul {
+    list-style: none;
+    /* リストマーカーを削除 */
+    padding: 0;
+    /* パディングを削除 */
+    margin: 0;
+    /* マージンを削除 */
+    display: flex;
+    /* フレックスボックスにする */
+    justify-content: space-between;
+    /* 等間隔でアイテムを並べる */
+    width: 90%;
+    /* ul の幅を最大にする */
+}
+
+.App-Logo ul li p {
+    font-size: 13px;
+    /* 仮のサイズ */
+    transform: scale(0.6);
+    font-weight: 500;
+}

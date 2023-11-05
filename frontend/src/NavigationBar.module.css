@@ -1,0 +1,11 @@
+navbar .navItem {
+    height: 30px;
+    font-size: 10px;
+    /* 仮のサイズ */
+    transform: scale(0.6);
+    font-weight: lighter;
+}
+
+navbar .navItem:hover {
+    cursor: pointer;
+}

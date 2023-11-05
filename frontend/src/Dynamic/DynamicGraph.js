@@ -42,12 +42,13 @@ function DynamicGraph() {
         <div>
             <div className={navbarClasses}>
                 <ul>
+                    <li><p><NavigationBar /></p></li>
                     <li><p onClick={() => scrollTo('GraphComponent')}>Plotly Chart</p></li>
                     <li><p onClick={() => scrollTo('ConcentrationGraph')}>Google Chart</p></li>
                     <li><p onClick={() => scrollTo('Concentration')}>Area Peaks</p></li>
                 </ul>
             </div>
-            <NavigationBar />
+
 
 
             <div id="GraphComponent" className={styles['content']}>  {/* idを追加 */}

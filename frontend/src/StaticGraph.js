@@ -74,6 +74,7 @@ function StaticGraph() {
         <div className={navbarClasses}>
           {isLoading && <LinearProgress />} {/* isLoadingがtrueのときにLinearProgressを表示 */}
           <ul>
+            <li><p><NavigationBar /></p></li>
             <li><p onClick={() => scrollTo('GraphComponent')}>NIR Graph</p></li>
             <li><p onClick={() => scrollTo('ConcentrationGraphComponent')}>Concentration Graph</p></li>
             <li><p onClick={() => scrollTo('Differential')}>Differential</p></li>
@@ -92,7 +93,7 @@ function StaticGraph() {
           />
         </div>
 
-        <NavigationBar />
+
 
 
         <FileUploader isLoading={isLoading} setIsLoading={setIsLoading} />
