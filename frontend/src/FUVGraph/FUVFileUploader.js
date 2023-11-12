@@ -71,6 +71,37 @@ const FileUploader = () => {
         reader.readAsArrayBuffer(file);
     };
 
+
+    const handleRefractiveIndexUpload = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+            const data = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+            // 屈折率データをバックエンドに送信
+            fetch(`${BACKEND_URL}api/refractive_index_upload/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(jsonData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        };
+
+        reader.readAsArrayBuffer(file);
+    };
+
     return (
         <div>
             <div className={styles['input']}>
@@ -99,7 +130,22 @@ const FileUploader = () => {
                     </div>
                 </label>
                 <input id="nireFileInput" type="file" accept=".xlsx, .xls, .xlsm" onChange={handleNireFileUpload} style={{ display: 'none' }} />
+            </div>
 
+
+            <div className={styles['input']}>
+                <p>屈折率</p>
+                <label htmlFor="refractiveIndexFileInput" className={styles['cssbuttons-io-button']}>
+                    RI
+                    <div className={styles.icon}>...</div>
+                </label>
+                <input
+                    id="refractiveIndexFileInput"
+                    type="file"
+                    accept=".xlsx, .xls, .xlsm"
+                    onChange={handleRefractiveIndexUpload}
+                    style={{ display: 'none' }}
+                />
             </div>
         </div>
     );

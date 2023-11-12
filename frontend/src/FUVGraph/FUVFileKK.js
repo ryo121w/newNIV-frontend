@@ -9,6 +9,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 function KKTransformComponent() {
     const [nInf, setNInf] = useState('');
     const [incidentAngle, setIncidentAngle] = useState('');
+    const [concentrationCounts, setConcentrationCounts] = useState([]);
     const [loading, setLoading] = useState(false);
 
 
@@ -17,11 +18,12 @@ function KKTransformComponent() {
     const handleKKTransform = async () => {
         try {
             setLoading(true);
+            // 各濃度に対応する屈折率と入射角を含むオブジェクトを作成
             const postData = {
                 n_inf: nInf,
                 incident_angle: incidentAngle,
             };
-            const response = await axios.post(`${BACKEND_URL}/api/kk_transformed_spectrum/`, postData);
+            const response = await axios.post(`${BACKEND_URL}api/kk_transformed_spectrum/`, postData);
             console.log(response.data);
             alert('KK変換が完了しました！');
         } catch (error) {
@@ -31,6 +33,28 @@ function KKTransformComponent() {
             setLoading(false);
         }
     };
+
+    const getConcentrationCount = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get(`${BACKEND_URL}api/get_fuv_concentration_count`);
+            console.log('API Response:', response.data);  // デバッグ出力
+            const counts = Array.isArray(response.data.concentration_labels)
+                ? response.data.concentration_labels
+                : [];
+            setConcentrationCounts(counts);
+            setNInf(new Array(counts.length).fill(''));  // nInf ステートを更新
+            console.log('Updated concentrationCounts:', counts);  // デバッグ出力
+            console.log('Updated nInf:', nInf);  // デバッグ出力
+        } catch (error) {
+            console.error("濃度数の取得中にエラーが発生しました:", error);
+            alert('濃度数の取得中にエラーが発生しました。');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
 
     const handleDownload = async () => {
         try {
@@ -60,15 +84,9 @@ function KKTransformComponent() {
                     <FileUploader />
                 </div>
                 <div className={styles['right-section']}>
-                    <label className={styles['label']}>
-                        サンプルの屈折率 (n_inf):
-                        <input
-                            type="number"
-                            value={nInf}
-                            onChange={e => setNInf(e.target.value)}
-                            className={styles['input']}
-                        />
-                    </label>
+                    <button onClick={getConcentrationCount} disabled={loading} className={styles['cssbuttons-io-button']}>
+                        濃度数を取得
+                    </button>
 
                     <label className={styles['label']}>
                         入射角 (incident_angle):

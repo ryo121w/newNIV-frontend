@@ -69,6 +69,12 @@ const DynamicPlotlyChart = () => {
     const [concentration_headers, setConcentrationHeaders] = useState([]);
     const [showPicker, setShowPicker] = useState(null);  // 表示するカラーピッカーを制御
     const colorPickerRef = useRef(null);
+    const [lineWidth, setLineWidth] = useState(2); // スペクトルの太さの初期値
+    const [xAxisFontSize, setXAxisFontSize] = useState(18); // X軸ラベルのフォントサイズの初期値
+    const [yAxisFontSize, setYAxisFontSize] = useState(18); // Y軸ラベルのフォントサイズの初期値
+    const [xAxisFontFamily, setXAxisFontFamily] = useState('Arial Black, Arial, sans-serif'); // X軸ラベルのフォントファミリーの初期値
+    const [yAxisFontFamily, setYAxisFontFamily] = useState('Arial Black, Arial, sans-serif'); // Y軸ラベルのフォントファミリーの初期値
+
 
 
     // =============================================================================================
@@ -122,8 +128,8 @@ const DynamicPlotlyChart = () => {
             title: {
                 text: xAxisLabel, // Update this line
                 font: {
-                    family: 'Arial Black, Arial, sans-serif',  // 太字のフォントを指定
-                    size: 18  // サイズを調整
+                    family: xAxisFontFamily, // フォントファミリーを動的に設定
+                    size: xAxisFontSize,
                 }
             },
             showgrid: false,
@@ -140,8 +146,8 @@ const DynamicPlotlyChart = () => {
             title: {
                 text: yAxisLabel, // And this line
                 font: {
-                    family: 'Arial Black, Arial, sans-serif',  // 太字のフォントを指定
-                    size: 18 // サイズを調整
+                    family: yAxisFontFamily, // フォントファミリーを動的に設定
+                    size: yAxisFontSize // フォントサイズを動的に設定
                 }
 
             },
@@ -304,7 +310,7 @@ const DynamicPlotlyChart = () => {
                 line: {
                     shape: 'spline',
                     color: spectrumColors[header] || 'blue',  // spectrumColorsを使用して色を設定
-                    width: 1
+                    width: lineWidth,
                 }
             };
         });
@@ -425,6 +431,25 @@ const DynamicPlotlyChart = () => {
         };
     }, []);
 
+    useEffect(() => {
+        setData(computeDataset(originalJson));
+    }, [lineWidth, originalJson]);
+
+
+
+    const fontFamilies = [
+        'Arial, sans-serif',
+        'Verdana, sans-serif',
+        'Helvetica, sans-serif',
+        'Tahoma, sans-serif',
+        'Trebuchet MS, sans-serif',
+        'Times New Roman, serif',
+        'Georgia, serif',
+        'Garamond, serif',
+        'Courier New, monospace',
+        'Brush Script MT, cursive',
+        // 他のフォントファミリーを追加できます
+    ];
 
 
     return (
@@ -468,6 +493,87 @@ const DynamicPlotlyChart = () => {
 
                 <div className={styles['settings-container']}>
                     <div className={styles['settings-controls']}>
+
+                        {/* スペクトルの太さを調整するスライダー */}
+                        <div className={styles['slider-container']}>
+                            <label className={styles['slider-label']}>Line Width</label>
+                            <Slider
+                                min={0.5}
+                                max={10}
+                                value={lineWidth}
+                                onChange={value => setLineWidth(value)}
+                                trackStyle={{
+                                    backgroundColor: '#fff',
+                                    height: 14
+                                }}
+                                handleStyle={{
+                                    borderColor: '#CBCDCD',
+                                    borderWidth: 0.5,
+                                    height: 14,
+                                    width: 14, // 横の大きさを少し大きくして楕円の形に
+                                    marginLeft: 0, // ハンドルの半分の幅
+
+                                    marginTop: 0, // トラックの半分の高さからハンドルの半分の高さを引く
+                                    backgroundColor: '#fff',
+                                    boxShadow: 'none',
+                                    borderRadius: '10px' // 上下は7px、左右は10pxの楕円に
+                                }}
+                                railStyle={{
+                                    backgroundColor: '#ddd',
+                                    height: 14
+                                }}
+                            />
+                        </div>
+
+                        {/* X軸ラベルのフォントサイズ調整 */}
+                        <div className={styles['label-input']}>
+                            <label>X Axis Font Size</label>
+                            <input
+                                type="number"
+                                value={xAxisFontSize}
+                                onChange={e => setXAxisFontSize(e.target.value)}
+                                className={styles['styled-input']}
+                            />
+                        </div>
+
+                        {/* Y軸ラベルのフォントサイズ調整 */}
+                        <div className={styles['label-input']}>
+                            <label>Y Axis Font Size</label>
+                            <input
+                                type="number"
+                                value={yAxisFontSize}
+                                onChange={e => setYAxisFontSize(e.target.value)}
+                                className={styles['styled-input']}
+                            />
+                        </div>
+
+                        <div className={styles['label-input']}>
+                            <label>X Axis Font Family</label>
+                            <select
+                                value={xAxisFontFamily}
+                                onChange={e => setXAxisFontFamily(e.target.value)}
+                                className={styles['styled-select']}
+                            >
+                                {fontFamilies.map((family, index) => (
+                                    <option key={index} value={family}>{family}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        {/* Y軸ラベルのフォントファミリー選択 */}
+                        <div className={styles['label-input']}>
+                            <label>Y Axis Font Family</label>
+                            <select
+                                value={yAxisFontFamily}
+                                onChange={e => setYAxisFontFamily(e.target.value)}
+                                className={styles['styled-select']}
+                            >
+                                {fontFamilies.map((family, index) => (
+                                    <option key={index} value={family}>{family}</option>
+                                ))}
+                            </select>
+                        </div>
+
                         <div className={styles['slider-container']}>
                             <label className={styles['slider-label']}>x-axis</label>
                             <Slider
