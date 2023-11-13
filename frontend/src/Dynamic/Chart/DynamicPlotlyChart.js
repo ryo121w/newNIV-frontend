@@ -525,27 +525,9 @@ const DynamicPlotlyChart = () => {
                             />
                         </div>
 
-                        {/* X軸ラベルのフォントサイズ調整 */}
-                        <div className={styles['label-input']}>
-                            <label>X Axis Font Size</label>
-                            <input
-                                type="number"
-                                value={xAxisFontSize}
-                                onChange={e => setXAxisFontSize(e.target.value)}
-                                className={styles['styled-input']}
-                            />
-                        </div>
 
-                        {/* Y軸ラベルのフォントサイズ調整 */}
-                        <div className={styles['label-input']}>
-                            <label>Y Axis Font Size</label>
-                            <input
-                                type="number"
-                                value={yAxisFontSize}
-                                onChange={e => setYAxisFontSize(e.target.value)}
-                                className={styles['styled-input']}
-                            />
-                        </div>
+
+
 
                         <div className={styles['label-input']}>
                             <label>X Axis Font Family</label>
@@ -560,6 +542,17 @@ const DynamicPlotlyChart = () => {
                             </select>
                         </div>
 
+                        {/* X軸ラベルのフォントサイズ調整 */}
+                        <div className={styles['label-input']}>
+                            <label>X Axis Font Size</label>
+                            <input
+                                type="number"
+                                value={xAxisFontSize}
+                                onChange={e => setXAxisFontSize(e.target.value)}
+                                className={styles['styled-input']}
+                            />
+                        </div>
+
                         {/* Y軸ラベルのフォントファミリー選択 */}
                         <div className={styles['label-input']}>
                             <label>Y Axis Font Family</label>
@@ -572,6 +565,17 @@ const DynamicPlotlyChart = () => {
                                     <option key={index} value={family}>{family}</option>
                                 ))}
                             </select>
+                        </div>
+
+                        {/* Y軸ラベルのフォントサイズ調整 */}
+                        <div className={styles['label-input']}>
+                            <label>Y Axis Font Size</label>
+                            <input
+                                type="number"
+                                value={yAxisFontSize}
+                                onChange={e => setYAxisFontSize(e.target.value)}
+                                className={styles['styled-input']}
+                            />
                         </div>
 
                         <div className={styles['slider-container']}>
