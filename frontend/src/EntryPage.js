@@ -142,9 +142,9 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                     {renderRandomFile()}
                     <div className={styles['menu']}>
                         <ul>
-                            <li className={styles['menu-list']} onClick={() => setChoice('static')}><p>StaticGraph</p></li>
-                            <li className={styles['menu-list']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
+                            <li className={styles['menu-list']} onClick={() => setChoice('static')}><p>NIR</p></li>
                             <li className={styles['menu-list']} onClick={() => setChoice('fuv')}><p>FUV</p></li>
+                            <li className={styles['menu-list']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
                             <li className={styles['menu-list']} onClick={() => setChoice('other')}><p>Other</p></li>
                             {isSuperUserAuthenticated && (
                                 <li className={styles['menu-list']} onClick={() => window.location.href = `${BACKEND_URL}xzoDx2yX/`}><p>Admin</p></li>
@@ -157,10 +157,10 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
 
                 {/* SideButton */}
                 <div className={styles['button-container']}>
-                    <li className={styles['btn']} onClick={() => setChoice('static')}><p>StaticGraph</p></li>
-                    <li className={styles['btn']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
+                    <li className={styles['btn']} onClick={() => setChoice('static')}><p>NIR</p></li>
                     <li className={styles['btn']} onClick={() => setChoice('fuv')}><p>FUV</p></li>
                     <li className={styles['btn']} onClick={() => setChoice('other')}><p>Other</p></li>
+                    <li className={styles['btn']} onClick={() => setChoice('dynamic')}><p>DynamicGraph</p></li>
                 </div>
             </div>
 
@@ -229,7 +229,7 @@ function EntryPage({ isSuperUserAuthenticated, currentUser }) {
                 {/* Static */}
                 <div className={styles['Static']}>
                     <div className={`${styles['Title']} ${styles['fadeInUp']}`}>
-                        <h1>Static Graph</h1>
+                        <h1>NIR</h1>
                     </div>
 
                     <ul>

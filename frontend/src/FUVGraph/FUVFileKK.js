@@ -34,25 +34,6 @@ function KKTransformComponent() {
         }
     };
 
-    const getConcentrationCount = async () => {
-        try {
-            setLoading(true);
-            const response = await axios.get(`${BACKEND_URL}api/get_fuv_concentration_count`);
-            console.log('API Response:', response.data);  // デバッグ出力
-            const counts = Array.isArray(response.data.concentration_labels)
-                ? response.data.concentration_labels
-                : [];
-            setConcentrationCounts(counts);
-            setNInf(new Array(counts.length).fill(''));  // nInf ステートを更新
-            console.log('Updated concentrationCounts:', counts);  // デバッグ出力
-            console.log('Updated nInf:', nInf);  // デバッグ出力
-        } catch (error) {
-            console.error("濃度数の取得中にエラーが発生しました:", error);
-            alert('濃度数の取得中にエラーが発生しました。');
-        } finally {
-            setLoading(false);
-        }
-    };
 
 
 
@@ -84,9 +65,6 @@ function KKTransformComponent() {
                     <FileUploader />
                 </div>
                 <div className={styles['right-section']}>
-                    <button onClick={getConcentrationCount} disabled={loading} className={styles['cssbuttons-io-button']}>
-                        濃度数を取得
-                    </button>
 
                     <label className={styles['label']}>
                         入射角 (incident_angle):

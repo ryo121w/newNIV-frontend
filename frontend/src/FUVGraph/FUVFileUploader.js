@@ -134,7 +134,7 @@ const FileUploader = () => {
 
 
             <div className={styles['input']}>
-                <p>屈折率</p>
+                <p>サンプル屈折率</p>
                 <label htmlFor="refractiveIndexFileInput" className={styles['cssbuttons-io-button']}>
                     RI
                     <div className={styles.icon}>...</div>
